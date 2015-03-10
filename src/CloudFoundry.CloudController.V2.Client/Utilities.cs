@@ -4,10 +4,12 @@
     using System.Globalization;
     using System.IO;
     using System.Linq;
+    using System.Threading.Tasks;
     using CloudFoundry.CloudController.Common.Exceptions;
     using CloudFoundry.CloudController.V2.Interfaces;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
+    using PCLStorage;
 
     internal sealed class Utilities
     {
@@ -79,6 +81,39 @@
             else
             {
                 return JsonConvert.DeserializeObject<T>(value.ToString(), jsonSettings);
+            }
+        }
+
+        internal static async Task<byte[]> ReadFile(IFile file)
+        {
+            byte[] bytes;
+            using (Stream fileStream = await file.OpenAsync(FileAccess.Read))
+            {
+                bytes = new byte[fileStream.Length];
+                int numBytesToRead = (int)fileStream.Length;
+                int numBytesRead = 0;
+                while (numBytesToRead > 0)
+                {
+                    int n = fileStream.Read(bytes, numBytesRead, numBytesToRead);
+                    if (n == 0)
+                    {
+                        break;
+                    }
+
+                    numBytesRead += n;
+                    numBytesToRead -= n;
+                }
+            }
+
+            return bytes;
+        }
+
+        internal static async Task WriteFile(byte[] content, string fileName)
+        {
+            IFile destination = await FileSystem.Current.LocalStorage.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
+            using (Stream fileStream = await destination.OpenAsync(FileAccess.ReadAndWrite))
+            {
+                fileStream.Write(content, 0, content.Length);
             }
         }
     }

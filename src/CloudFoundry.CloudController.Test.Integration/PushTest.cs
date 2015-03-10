@@ -29,8 +29,6 @@ namespace CloudFoundry.CloudController.Test.Integration
                 Assert.Fail("Error while loging in" + ex.ToString());
             }
 
-            PushJob job = new PushJob(client);
-
             PagedResponseCollection<ListAllSpacesResponse> spaces = client.Spaces.ListAllSpaces().Result;
 
             var spaceGuid = string.Empty;
@@ -83,11 +81,17 @@ namespace CloudFoundry.CloudController.Test.Integration
 
             CancellationTokenSource cts = new CancellationTokenSource();
 
-            Progress<ProgressInfo> prog = new Progress<ProgressInfo>(new Action<ProgressInfo>((ProgressInfo a) => { System.Diagnostics.Debug.Print(a.Message + " " + a.Percent); }));
+            client.Apps.Progress -= Apps_Progress;
+            client.Apps.Progress += Apps_Progress;
+            Guid? appGuid = client.Apps.Push(apprequest, appPath, @"C:\tmp2\", cts).Result;
 
-            job.Push(apprequest, appPath,@"C:\tmp2\", prog, cts).Wait();
-
-            Assert.IsTrue(true);
+            Assert.IsNotNull(appGuid);
         }
+
+        void Apps_Progress(object sender, V2.Client.ClientExtensions.ProgressEventArgs e)
+        {
+            Console.WriteLine(string.Format("{0} {1}%", e.Message, e.Percent));
+        }
+
     }
 }
