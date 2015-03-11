@@ -3,6 +3,8 @@
     using System;
     using CloudFoundry.CloudController.Common.Http;
 
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032:ImplementStandardExceptionConstructors", Justification = "Compatibility with PCL"), 
+    System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2237:MarkISerializableTypesWithSerializable", Justification = "Compatibility with PCL")]
     public class CloudFoundryException : Exception
     {
         public CloudFoundryException()
