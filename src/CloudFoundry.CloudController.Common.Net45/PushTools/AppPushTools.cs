@@ -29,7 +29,7 @@
             appPath = Path.GetFullPath(appPath);
 
             foreach (string file in Directory.GetFiles(appPath, "*", SearchOption.AllDirectories))
-            {   
+            {
                 FileInfo fileInfo = new FileInfo(file);
                 FileFingerprint print = new FileFingerprint();
                 print.Size = fileInfo.Length;
@@ -56,16 +56,20 @@
         /// <param name="files">The files that will be added to the archive.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>An open stream of the zip file</returns>
-        public async Task<System.IO.Stream> GetZippedPayload(string appPath, string[] files, System.Threading.CancellationToken cancellationToken)
+        public async Task<System.IO.Stream> GetZippedPayload(string appPath, IEnumerable<string> files, System.Threading.CancellationToken cancellationToken)
         {
             string zipFile = Path.Combine(Path.GetTempPath(), "payload.zip");
 
             //// If no files need to be uploaded we create a dummy file
-            if (files.Length == 0)
+            using (var enumerator = files.GetEnumerator())
             {
-                string emptyFile = "_empty_";
-                File.WriteAllText(Path.Combine(appPath, emptyFile), Guid.NewGuid().ToString());
-                files = new string[] { emptyFile };
+                //// equivalent to ( files.Count == 0 ) 
+                if (enumerator.MoveNext() == false)
+                {
+                    string emptyFile = "_empty_";
+                    File.WriteAllText(Path.Combine(appPath, emptyFile), Guid.NewGuid().ToString());
+                    files = new string[] { emptyFile };
+                }
             }
 
             using (Stream zipStream = new FileStream(zipFile, FileMode.Create))
