@@ -23,8 +23,82 @@ namespace CloudFoundry.CloudController.V3.Client.Test.Fake
 {
     [TestClass]
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public class DropletsEndpoint
+    public class DropletsExperimentalEndpoint
 {
+        [TestMethod]
+        public void DeleteDropletTest()
+        {
+            using (ShimsContext.Create())
+            {
+                MockClients clients = new MockClients();
+
+                clients.ExpectedStatusCode = (HttpStatusCode)204;
+                var cfClient = clients.CreateCloudFoundryClient();
+
+                Guid? guid = Guid.NewGuid();
+
+
+                cfClient.DropletsExperimental.DeleteDroplet(guid).Wait();
+
+            }
+        }
+
+        [TestMethod]
+        public void GetDropletTest()
+        {
+            using (ShimsContext.Create())
+            {
+                MockClients clients = new MockClients();
+
+                string json = @"{
+  ""guid"": ""guid-ed9a4570-51b4-4c19-a3ba-48aa413571d2"",
+  ""state"": ""STAGING"",
+  ""hash"": null,
+  ""buildpack_git_url"": null,
+  ""failure_reason"": ""example failure reason"",
+  ""detected_start_command"": ""run -c all_the_things"",
+  ""procfile"": null,
+  ""environment_variables"": {
+    ""cloud"": ""foundry""
+  },
+  ""created_at"": ""2015-07-29T12:47:18Z"",
+  ""updated_at"": null,
+  ""_links"": {
+    ""self"": {
+      ""href"": ""/v3/droplets/guid-ed9a4570-51b4-4c19-a3ba-48aa413571d2""
+    },
+    ""package"": {
+      ""href"": ""/v3/packages/guid-c1141a5b-4c7c-4b35-bfd6-3bcbbae46616""
+    },
+    ""app"": {
+      ""href"": ""/v3/apps/guid-3e7f523b-47b2-4b99-be6f-bf36942d326b""
+    }
+  }
+}";
+                clients.JsonResponse = json;
+
+                clients.ExpectedStatusCode = (HttpStatusCode)200;
+                var cfClient = clients.CreateCloudFoundryClient();
+
+                Guid? guid = Guid.NewGuid();
+
+
+                var obj = cfClient.DropletsExperimental.GetDroplet(guid).Result;
+
+
+                Assert.AreEqual("guid-ed9a4570-51b4-4c19-a3ba-48aa413571d2", TestUtil.ToTestableString(obj.Guid), true);
+                Assert.AreEqual("STAGING", TestUtil.ToTestableString(obj.State), true);
+                Assert.AreEqual("", TestUtil.ToTestableString(obj.Hash), true);
+                Assert.AreEqual("", TestUtil.ToTestableString(obj.BuildpackGitUrl), true);
+                Assert.AreEqual("example failure reason", TestUtil.ToTestableString(obj.FailureReason), true);
+                Assert.AreEqual("run -c all_the_things", TestUtil.ToTestableString(obj.DetectedStartCommand), true);
+                Assert.AreEqual("", TestUtil.ToTestableString(obj.Procfile), true);
+                Assert.AreEqual("2015-07-29T12:47:18Z", TestUtil.ToTestableString(obj.CreatedAt), true);
+                Assert.AreEqual("", TestUtil.ToTestableString(obj.UpdatedAt), true);
+
+            }
+        }
+
         [TestMethod]
         public void ListAllDropletsTest()
         {
@@ -46,7 +120,7 @@ namespace CloudFoundry.CloudController.V3.Client.Test.Fake
   },
   ""resources"": [
     {
-      ""guid"": ""guid-20824e72-706f-487b-b21f-a830b7b952a3"",
+      ""guid"": ""guid-21c96129-1201-423a-b8dc-26311c5d8d3d"",
       ""state"": ""STAGING"",
       ""hash"": null,
       ""buildpack_git_url"": null,
@@ -56,25 +130,25 @@ namespace CloudFoundry.CloudController.V3.Client.Test.Fake
       ""environment_variables"": {
         ""yuu"": ""huuu""
       },
-      ""created_at"": ""2015-06-30T07:10:59Z"",
+      ""created_at"": ""2015-07-29T12:47:18Z"",
       ""updated_at"": null,
       ""_links"": {
         ""self"": {
-          ""href"": ""/v3/droplets/guid-20824e72-706f-487b-b21f-a830b7b952a3""
+          ""href"": ""/v3/droplets/guid-21c96129-1201-423a-b8dc-26311c5d8d3d""
         },
         ""package"": {
-          ""href"": ""/v3/packages/guid-17cc9b67-98fa-46f1-a546-47588f7cd0c9""
+          ""href"": ""/v3/packages/guid-a8e25919-60dc-4590-a5f0-b68efb253ef6""
         },
         ""app"": {
-          ""href"": ""/v3/apps/guid-a2a5114f-a9df-4a8b-9dc4-95773c2b7cbf""
+          ""href"": ""/v3/apps/guid-ce625963-9132-4b86-8db2-50510ae7ed00""
         },
         ""buildpack"": {
-          ""href"": ""/v2/buildpacks/62944676-116a-4c91-8f01-86fa4a6fa07c""
+          ""href"": ""/v2/buildpacks/b040d2d3-44f1-4150-bc63-7b3893f3475f""
         }
       }
     },
     {
-      ""guid"": ""guid-0f1b5a2e-2fae-4790-a467-8d4dcbb830b7"",
+      ""guid"": ""guid-87c81e09-0906-42a8-938b-d8cf3b706165"",
       ""state"": ""STAGED"",
       ""hash"": ""my-hash"",
       ""buildpack_git_url"": ""https://github.com/cloudfoundry/my-buildpack.git"",
@@ -84,17 +158,17 @@ namespace CloudFoundry.CloudController.V3.Client.Test.Fake
       ""environment_variables"": {
 
       },
-      ""created_at"": ""2015-06-30T07:10:59Z"",
+      ""created_at"": ""2015-07-29T12:47:18Z"",
       ""updated_at"": null,
       ""_links"": {
         ""self"": {
-          ""href"": ""/v3/droplets/guid-0f1b5a2e-2fae-4790-a467-8d4dcbb830b7""
+          ""href"": ""/v3/droplets/guid-87c81e09-0906-42a8-938b-d8cf3b706165""
         },
         ""package"": {
-          ""href"": ""/v3/packages/guid-17cc9b67-98fa-46f1-a546-47588f7cd0c9""
+          ""href"": ""/v3/packages/guid-a8e25919-60dc-4590-a5f0-b68efb253ef6""
         },
         ""app"": {
-          ""href"": ""/v3/apps/guid-a2a5114f-a9df-4a8b-9dc4-95773c2b7cbf""
+          ""href"": ""/v3/apps/guid-ce625963-9132-4b86-8db2-50510ae7ed00""
         }
       }
     }
@@ -106,100 +180,26 @@ namespace CloudFoundry.CloudController.V3.Client.Test.Fake
                 var cfClient = clients.CreateCloudFoundryClient();
 
 
-                var obj = cfClient.Droplets.ListAllDroplets().Result;
+                var obj = cfClient.DropletsExperimental.ListAllDroplets().Result;
 
-                Assert.AreEqual("guid-20824e72-706f-487b-b21f-a830b7b952a3", TestUtil.ToTestableString(obj[0].Guid), true);
+                Assert.AreEqual("guid-21c96129-1201-423a-b8dc-26311c5d8d3d", TestUtil.ToTestableString(obj[0].Guid), true);
                 Assert.AreEqual("STAGING", TestUtil.ToTestableString(obj[0].State), true);
                 Assert.AreEqual("", TestUtil.ToTestableString(obj[0].Hash), true);
                 Assert.AreEqual("", TestUtil.ToTestableString(obj[0].BuildpackGitUrl), true);
                 Assert.AreEqual("", TestUtil.ToTestableString(obj[0].FailureReason), true);
                 Assert.AreEqual("", TestUtil.ToTestableString(obj[0].DetectedStartCommand), true);
                 Assert.AreEqual("", TestUtil.ToTestableString(obj[0].Procfile), true);
-                Assert.AreEqual("2015-06-30T07:10:59Z", TestUtil.ToTestableString(obj[0].CreatedAt), true);
+                Assert.AreEqual("2015-07-29T12:47:18Z", TestUtil.ToTestableString(obj[0].CreatedAt), true);
                 Assert.AreEqual("", TestUtil.ToTestableString(obj[0].UpdatedAt), true);
-                Assert.AreEqual("guid-0f1b5a2e-2fae-4790-a467-8d4dcbb830b7", TestUtil.ToTestableString(obj[1].Guid), true);
+                Assert.AreEqual("guid-87c81e09-0906-42a8-938b-d8cf3b706165", TestUtil.ToTestableString(obj[1].Guid), true);
                 Assert.AreEqual("STAGED", TestUtil.ToTestableString(obj[1].State), true);
                 Assert.AreEqual("my-hash", TestUtil.ToTestableString(obj[1].Hash), true);
                 Assert.AreEqual("https://github.com/cloudfoundry/my-buildpack.git", TestUtil.ToTestableString(obj[1].BuildpackGitUrl), true);
                 Assert.AreEqual("", TestUtil.ToTestableString(obj[1].FailureReason), true);
                 Assert.AreEqual("", TestUtil.ToTestableString(obj[1].DetectedStartCommand), true);
                 Assert.AreEqual("", TestUtil.ToTestableString(obj[1].Procfile), true);
-                Assert.AreEqual("2015-06-30T07:10:59Z", TestUtil.ToTestableString(obj[1].CreatedAt), true);
+                Assert.AreEqual("2015-07-29T12:47:18Z", TestUtil.ToTestableString(obj[1].CreatedAt), true);
                 Assert.AreEqual("", TestUtil.ToTestableString(obj[1].UpdatedAt), true);
-
-            }
-        }
-
-        [TestMethod]
-        public void DeleteDropletTest()
-        {
-            using (ShimsContext.Create())
-            {
-                MockClients clients = new MockClients();
-
-                clients.ExpectedStatusCode = (HttpStatusCode)204;
-                var cfClient = clients.CreateCloudFoundryClient();
-
-                Guid? guid = Guid.NewGuid();
-
-
-                cfClient.Droplets.DeleteDroplet(guid).Wait();
-
-            }
-        }
-
-        [TestMethod]
-        public void GetDropletTest()
-        {
-            using (ShimsContext.Create())
-            {
-                MockClients clients = new MockClients();
-
-                string json = @"{
-  ""guid"": ""guid-b9c83258-f33e-43f0-b0f0-89ad602aa71a"",
-  ""state"": ""STAGING"",
-  ""hash"": null,
-  ""buildpack_git_url"": null,
-  ""failure_reason"": ""example failure reason"",
-  ""detected_start_command"": ""run -c all_the_things"",
-  ""procfile"": null,
-  ""environment_variables"": {
-    ""cloud"": ""foundry""
-  },
-  ""created_at"": ""2015-06-30T07:10:59Z"",
-  ""updated_at"": null,
-  ""_links"": {
-    ""self"": {
-      ""href"": ""/v3/droplets/guid-b9c83258-f33e-43f0-b0f0-89ad602aa71a""
-    },
-    ""package"": {
-      ""href"": ""/v3/packages/guid-ec95b507-e7d0-4ab8-9dbc-3353a29dfe8c""
-    },
-    ""app"": {
-      ""href"": ""/v3/apps/guid-49fd9afd-a945-45c4-827e-552956a08477""
-    }
-  }
-}";
-                clients.JsonResponse = json;
-
-                clients.ExpectedStatusCode = (HttpStatusCode)200;
-                var cfClient = clients.CreateCloudFoundryClient();
-
-                Guid? guid = Guid.NewGuid();
-
-
-                var obj = cfClient.Droplets.GetDroplet(guid).Result;
-
-
-                Assert.AreEqual("guid-b9c83258-f33e-43f0-b0f0-89ad602aa71a", TestUtil.ToTestableString(obj.Guid), true);
-                Assert.AreEqual("STAGING", TestUtil.ToTestableString(obj.State), true);
-                Assert.AreEqual("", TestUtil.ToTestableString(obj.Hash), true);
-                Assert.AreEqual("", TestUtil.ToTestableString(obj.BuildpackGitUrl), true);
-                Assert.AreEqual("example failure reason", TestUtil.ToTestableString(obj.FailureReason), true);
-                Assert.AreEqual("run -c all_the_things", TestUtil.ToTestableString(obj.DetectedStartCommand), true);
-                Assert.AreEqual("", TestUtil.ToTestableString(obj.Procfile), true);
-                Assert.AreEqual("2015-06-30T07:10:59Z", TestUtil.ToTestableString(obj.CreatedAt), true);
-                Assert.AreEqual("", TestUtil.ToTestableString(obj.UpdatedAt), true);
 
             }
         }

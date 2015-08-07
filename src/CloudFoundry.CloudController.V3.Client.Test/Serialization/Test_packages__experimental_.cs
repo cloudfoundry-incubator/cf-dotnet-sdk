@@ -24,24 +24,9 @@ namespace CloudFoundry.CloudController.V3.Test.Serialization
 {
     [TestClass]
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public class PackagesTest
+    public class PackagesExperimentalTest
     {
 
-        [TestMethod]
-        public void TestCreatePackageRequest()
-        {
-            string json = @"{
-  ""type"": ""docker"",
-  ""url"": ""docker://cloudfoundry/runtime-ci""
-}";
-
-            CreatePackageRequest request = new CreatePackageRequest();
-
-            request.Type = "docker";
-            request.Url = "docker://cloudfoundry/runtime-ci";
-            string result = JsonConvert.SerializeObject(request, Formatting.None);
-            Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
-        }
         [TestMethod]
         public void TestStagePackageRequest()
         {
@@ -54,6 +39,21 @@ namespace CloudFoundry.CloudController.V3.Test.Serialization
 
             request.BuildpackGitUrl = "http://github.com/myorg/awesome-buildpack";
             request.Stack = "trusty64";
+            string result = JsonConvert.SerializeObject(request, Formatting.None);
+            Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
+        }
+        [TestMethod]
+        public void TestCreatePackageRequest()
+        {
+            string json = @"{
+  ""type"": ""docker"",
+  ""url"": ""docker://cloudfoundry/runtime-ci""
+}";
+
+            CreatePackageRequest request = new CreatePackageRequest();
+
+            request.Type = "docker";
+            request.Url = "docker://cloudfoundry/runtime-ci";
             string result = JsonConvert.SerializeObject(request, Formatting.None);
             Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
         }

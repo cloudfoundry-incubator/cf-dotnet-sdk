@@ -21,7 +21,7 @@ namespace CloudFoundry.CloudController.V3.Test.Deserialization
 {
     [TestClass]
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public class AppRoutesTest
+    public class AppRoutesExperimentalTest
     {
 
 
@@ -32,42 +32,40 @@ namespace CloudFoundry.CloudController.V3.Test.Deserialization
   ""pagination"": {
     ""total_results"": 2,
     ""first"": {
-      ""href"": ""/v3/apps/guid-52ae6c97-4ba6-49a5-ae9e-24b1bebd99a7/routes?page=1=50""
+      ""href"": ""/v3/apps/guid-b89c5025-b718-42bf-b1d3-0beaa8cc6e9b/routes?page=1=50""
     },
     ""last"": {
-      ""href"": ""/v3/apps/guid-52ae6c97-4ba6-49a5-ae9e-24b1bebd99a7/routes?page=1=50""
+      ""href"": ""/v3/apps/guid-b89c5025-b718-42bf-b1d3-0beaa8cc6e9b/routes?page=1=50""
     },
     ""next"": null,
     ""previous"": null
   },
   ""resources"": [
     {
-      ""guid"": ""ac884a9e-0a29-4f63-8276-0e03d6559dfe"",
-      ""host"": ""host-16"",
-      ""path"": """",
-      ""created_at"": ""2015-06-30T07:10:48Z"",
+      ""guid"": ""bfd1b1cd-0417-40a1-a4ac-a320dab0651b"",
+      ""host"": ""host-5"",
+      ""created_at"": ""2015-07-29T12:47:14Z"",
       ""updated_at"": null,
       ""_links"": {
         ""space"": {
-          ""href"": ""/v2/spaces/585f9880-39b8-4eaa-ab1f-b8264fc344d5""
+          ""href"": ""/v2/spaces/b5ed4632-b140-40b9-968f-e6fe7de6f066""
         },
         ""domain"": {
-          ""href"": ""/v2/domains/d5fdcc0b-0a6e-4351-b013-50996e481920""
+          ""href"": ""/v2/domains/fbaf7b03-fbb3-4944-b359-2ac3796acbf2""
         }
       }
     },
     {
-      ""guid"": ""ad825658-2b6e-4f4f-9778-716012c9b973"",
-      ""host"": ""host-17"",
-      ""path"": ""/foo/bar"",
-      ""created_at"": ""2015-06-30T07:10:48Z"",
+      ""guid"": ""88ceafe4-f700-40fa-934b-321a4b744861"",
+      ""host"": ""host-6"",
+      ""created_at"": ""2015-07-29T12:47:14Z"",
       ""updated_at"": null,
       ""_links"": {
         ""space"": {
-          ""href"": ""/v2/spaces/585f9880-39b8-4eaa-ab1f-b8264fc344d5""
+          ""href"": ""/v2/spaces/b5ed4632-b140-40b9-968f-e6fe7de6f066""
         },
         ""domain"": {
-          ""href"": ""/v2/domains/3afae5b6-559f-47b2-ad70-e05bf858fe74""
+          ""href"": ""/v2/domains/35e6fc16-8b90-4aaa-a075-f52b625e77e3""
         }
       }
     }
@@ -76,15 +74,13 @@ namespace CloudFoundry.CloudController.V3.Test.Deserialization
 
             PagedResponseCollection<ListRoutesResponse> page = Utilities.DeserializePage<ListRoutesResponse>(json, null);
 
-            Assert.AreEqual("ac884a9e-0a29-4f63-8276-0e03d6559dfe", TestUtil.ToTestableString(page[0].Guid), true);
-            Assert.AreEqual("host-16", TestUtil.ToTestableString(page[0].Host), true);
-            Assert.AreEqual("", TestUtil.ToTestableString(page[0].Path), true);
-            Assert.AreEqual("2015-06-30T07:10:48Z", TestUtil.ToTestableString(page[0].CreatedAt), true);
+            Assert.AreEqual("bfd1b1cd-0417-40a1-a4ac-a320dab0651b", TestUtil.ToTestableString(page[0].Guid), true);
+            Assert.AreEqual("host-5", TestUtil.ToTestableString(page[0].Host), true);
+            Assert.AreEqual("2015-07-29T12:47:14Z", TestUtil.ToTestableString(page[0].CreatedAt), true);
             Assert.AreEqual("", TestUtil.ToTestableString(page[0].UpdatedAt), true);
-            Assert.AreEqual("ad825658-2b6e-4f4f-9778-716012c9b973", TestUtil.ToTestableString(page[1].Guid), true);
-            Assert.AreEqual("host-17", TestUtil.ToTestableString(page[1].Host), true);
-            Assert.AreEqual("/foo/bar", TestUtil.ToTestableString(page[1].Path), true);
-            Assert.AreEqual("2015-06-30T07:10:48Z", TestUtil.ToTestableString(page[1].CreatedAt), true);
+            Assert.AreEqual("88ceafe4-f700-40fa-934b-321a4b744861", TestUtil.ToTestableString(page[1].Guid), true);
+            Assert.AreEqual("host-6", TestUtil.ToTestableString(page[1].Host), true);
+            Assert.AreEqual("2015-07-29T12:47:14Z", TestUtil.ToTestableString(page[1].CreatedAt), true);
             Assert.AreEqual("", TestUtil.ToTestableString(page[1].UpdatedAt), true);
         }
     }

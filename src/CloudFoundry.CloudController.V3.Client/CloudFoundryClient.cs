@@ -40,10 +40,10 @@ namespace CloudFoundry.CloudController.V3.Client
         /// <param name="httpProxy">The HTTP proxy.</param>
         /// <param name="skipCertificateValidation">if set to <c>true</c> it will skip TLS certificate validation for HTTP requests.</param>
         public CloudFoundryClient(Uri cloudTarget, CancellationToken cancellationToken, Uri httpProxy, bool skipCertificateValidation) 
-            : this(cloudTarget, cancellationToken, httpProxy, skipCertificateValidation, null)
+            : this(cloudTarget, cancellationToken, httpProxy, skipCertificateValidation, false, null)
         {
         }
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="CloudFoundryClient" /> class.
         /// </summary>
@@ -51,9 +51,23 @@ namespace CloudFoundry.CloudController.V3.Client
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <param name="httpProxy">The HTTP proxy.</param>
         /// <param name="skipCertificateValidation">if set to <c>true</c> it will skip TLS certificate validation for HTTP requests.</param>
+        /// <param name="useStrictStatusCodeChecking">throw exception if the successful http status code returned from the server does not match the expected code</param>
+        public CloudFoundryClient(Uri cloudTarget, CancellationToken cancellationToken, Uri httpProxy, bool skipCertificateValidation, bool useStrictStatusCodeChecking)
+            : base(cloudTarget, cancellationToken, httpProxy, skipCertificateValidation, useStrictStatusCodeChecking, null)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CloudFoundryClient" /> class.
+        /// </summary>
+        /// <param name="cloudTarget">The cloud target.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <param name="httpProxy">The HTTP proxy.</param>
+        /// <param name="skipCertificateValidation">if set to <c>true</c> it will skip TLS certificate validation for HTTP requests.</param>
+        /// <param name="useStrictStatusCodeChecking">throw exception if the successful http status code returned from the server does not match the expected code</param>
         /// <param name="authorizationUrl">Authorization Endpoint</param>
-        public CloudFoundryClient(Uri cloudTarget, CancellationToken cancellationToken, Uri httpProxy, bool skipCertificateValidation, Uri authorizationUrl)
-            : base(cloudTarget, cancellationToken, httpProxy, skipCertificateValidation, authorizationUrl)
+        public CloudFoundryClient(Uri cloudTarget, CancellationToken cancellationToken, Uri httpProxy, bool skipCertificateValidation, bool useStrictStatusCodeChecking, Uri authorizationUrl)
+            : base(cloudTarget, cancellationToken, httpProxy, skipCertificateValidation, useStrictStatusCodeChecking, authorizationUrl)
         {
             this.V2 = new V2.Client.CloudFoundryClient(cloudTarget, cancellationToken, httpProxy, skipCertificateValidation);
         }
@@ -64,15 +78,7 @@ namespace CloudFoundry.CloudController.V3.Client
         /// <value>
         /// The apps endpoint.
         /// </value>
-        public AppsEndpoint Apps { get; private set; }
-
-        /// <summary>
-        /// Gets the app routes endpoint.
-        /// </summary>
-        /// <value>
-        /// The app routes endpoint.
-        /// </value>
-        public AppRoutesEndpoint AppRoutes { get; private set; }
+        public AppsExperimentalEndpoint AppsExperimental { get; private set; }
 
         /// <summary>
         /// Gets the droplets endpoint.
@@ -80,7 +86,7 @@ namespace CloudFoundry.CloudController.V3.Client
         /// <value>
         /// The droplets endpoint.
         /// </value>
-        public DropletsEndpoint Droplets { get; private set; }
+        public DropletsExperimentalEndpoint DropletsExperimental { get; private set; }
 
         /// <summary>
         /// Gets the packages endpoint.
@@ -88,7 +94,7 @@ namespace CloudFoundry.CloudController.V3.Client
         /// <value>
         /// The packages endpoint.
         /// </value>
-        public PackagesEndpoint Packages { get; private set; }
+        public PackagesExperimentalEndpoint PackagesExperimental { get; private set; }
 
         /// <summary>
         /// Gets the processes endpoint.
@@ -96,7 +102,7 @@ namespace CloudFoundry.CloudController.V3.Client
         /// <value>
         /// The processes endpoint.
         /// </value>
-        public ProcessesEndpoint Processes { get; private set; }
+        public ProcessesExperimentalEndpoint ProcessesExperimental { get; private set; }
 
         /// <summary>
         /// Gets the authorization token. It returns empty string if the client is not authorized. Also this method does not verify if the current token is expired.
@@ -217,11 +223,10 @@ namespace CloudFoundry.CloudController.V3.Client
             Justification = "Developers using the SDK should find it useful to have a 1-to-1 list of all documented Cloud Foundry endpoints.")]
         public override void InitEndpoints()
         {
-            this.Apps = new AppsEndpoint(this);
-            this.AppRoutes = new AppRoutesEndpoint(this);
-            this.Droplets = new DropletsEndpoint(this);
-            this.Packages = new PackagesEndpoint(this);
-            this.Processes = new ProcessesEndpoint(this);
+            this.AppsExperimental = new AppsExperimentalEndpoint(this);
+            this.DropletsExperimental = new DropletsExperimentalEndpoint(this);
+            this.PackagesExperimental = new PackagesExperimentalEndpoint(this);
+            this.ProcessesExperimental = new ProcessesExperimentalEndpoint(this);
         }
     }
 }

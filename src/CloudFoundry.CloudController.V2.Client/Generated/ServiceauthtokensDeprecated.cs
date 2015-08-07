@@ -53,7 +53,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Service Auth Tokens (deprecated)
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/202/serviceauthtokens__deprecated_/list_all_service_auth_tokens_(deprecated).html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/208/serviceauthtokens__deprecated_/list_all_service_auth_tokens_(deprecated).html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllServiceAuthTokensDeprecatedResponse>> ListAllServiceAuthTokensDeprecated()
         {
@@ -62,7 +62,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Service Auth Tokens (deprecated)
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/202/serviceauthtokens__deprecated_/list_all_service_auth_tokens_(deprecated).html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/208/serviceauthtokens__deprecated_/list_all_service_auth_tokens_(deprecated).html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllServiceAuthTokensDeprecatedResponse>> ListAllServiceAuthTokensDeprecated(RequestOptions options)
         {
@@ -84,7 +84,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Filtering the result set by label (deprecated)
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/202/serviceauthtokens__deprecated_/filtering_the_result_set_by_label_(deprecated).html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/208/serviceauthtokens__deprecated_/filtering_the_result_set_by_label_(deprecated).html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<FilterResultSetByLabelDeprecatedResponse>> FilterResultSetByLabelDeprecated()
         {
@@ -93,7 +93,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Filtering the result set by label (deprecated)
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/202/serviceauthtokens__deprecated_/filtering_the_result_set_by_label_(deprecated).html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/208/serviceauthtokens__deprecated_/filtering_the_result_set_by_label_(deprecated).html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<FilterResultSetByLabelDeprecatedResponse>> FilterResultSetByLabelDeprecated(RequestOptions options)
         {
@@ -115,7 +115,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Delete a Particular Service Auth Token (deprecated)
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/202/serviceauthtokens__deprecated_/delete_a_particular_service_auth_token_(deprecated).html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/208/serviceauthtokens__deprecated_/delete_a_particular_service_auth_token_(deprecated).html"</para>
         /// </summary>
         public async Task DeleteServiceAuthTokenDeprecated(Guid? guid)
         {
@@ -136,7 +136,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Retrieve a Particular Service Auth Token (deprecated)
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/202/serviceauthtokens__deprecated_/retrieve_a_particular_service_auth_token_(deprecated).html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/208/serviceauthtokens__deprecated_/retrieve_a_particular_service_auth_token_(deprecated).html"</para>
         /// </summary>
         public async Task<RetrieveServiceAuthTokenDeprecatedResponse> RetrieveServiceAuthTokenDeprecated(Guid? guid)
         {
@@ -157,7 +157,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Filtering the result set by provider (deprecated)
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/202/serviceauthtokens__deprecated_/filtering_the_result_set_by_provider_(deprecated).html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/208/serviceauthtokens__deprecated_/filtering_the_result_set_by_provider_(deprecated).html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<FilterResultSetByProviderDeprecatedResponse>> FilterResultSetByProviderDeprecated()
         {
@@ -166,7 +166,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Filtering the result set by provider (deprecated)
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/202/serviceauthtokens__deprecated_/filtering_the_result_set_by_provider_(deprecated).html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/208/serviceauthtokens__deprecated_/filtering_the_result_set_by_provider_(deprecated).html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<FilterResultSetByProviderDeprecatedResponse>> FilterResultSetByProviderDeprecated(RequestOptions options)
         {

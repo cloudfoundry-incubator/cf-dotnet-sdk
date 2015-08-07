@@ -54,12 +54,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="BaseEndpoint.cs" />
-    <Compile Include="Extensions\Apps.cs" />
-    <Compile Include="Extensions\Packages.cs" />
+    <Compile Include="Extensions\AppsExperimental.cs" />
+    <Compile Include="Extensions\PackagesExperimental.cs" />
     <Compile Include="Extensions\ProgressEventArgs.cs" />
     <Compile Include="CloudFoundryClient.cs" />
-    <Compile Include="Generated\AppRoutes.cs" />
-    <Compile Include="Generated\Apps.cs" />
+    <Compile Include="Generated\AppRoutesExperimental.cs" />
+    <Compile Include="Generated\AppsExperimental.cs" />
     <Compile Include="Generated\Data\DC_AssignDropletAsAppsCurrentDropletRequest.cs" />
     <Compile Include="Generated\Data\DC_AssignDropletAsAppsCurrentDropletResponse.cs" />
     <Compile Include="Generated\Data\DC_CreateAppRequest.cs" />
@@ -79,6 +79,7 @@
     <Compile Include="Generated\Data\DC_ListAssociatedPackagesResponse.cs" />
     <Compile Include="Generated\Data\DC_ListAssociatedProcessesResponse.cs" />
     <Compile Include="Generated\Data\DC_ListRoutesResponse.cs" />
+    <Compile Include="Generated\Data\DC_MapRouteRequest.cs" />
     <Compile Include="Generated\Data\DC_ScalingProcessFromItsAppRequest.cs" />
     <Compile Include="Generated\Data\DC_ScalingProcessFromItsAppResponse.cs" />
     <Compile Include="Generated\Data\DC_ScalingProcessRequest.cs" />
@@ -94,9 +95,9 @@
     <Compile Include="Generated\Data\DC_UpdateAppResponse.cs" />
     <Compile Include="Generated\Data\DC_UpdateProcessRequest.cs" />
     <Compile Include="Generated\Data\DC_UpdateProcessResponse.cs" />
-    <Compile Include="Generated\Droplets.cs" />
-    <Compile Include="Generated\Packages.cs" />
-    <Compile Include="Generated\Processes.cs" />
+    <Compile Include="Generated\DropletsExperimental.cs" />
+    <Compile Include="Generated\PackagesExperimental.cs" />
+    <Compile Include="Generated\ProcessesExperimental.cs" />
     <Compile Include="Page.cs" />
     <Compile Include="Pagination.cs" />
     <Compile Include="PagedResponseCollection.cs" />

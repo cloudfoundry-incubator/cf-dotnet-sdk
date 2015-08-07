@@ -32,26 +32,26 @@ namespace CloudFoundry.CloudController.V2.Test.Deserialization
   ""total_results"": 2,
   ""total_pages"": 2,
   ""prev_url"": null,
-  ""next_url"": ""/v2/service_usage_events?after_guid=d42975fa-246c-4bfa-88b3-3ce27e7ad278=asc=2=1"",
+  ""next_url"": ""/v2/service_usage_events?after_guid=1c9232c9-40a7-4c75-b5ee-f03f00337224=asc=2=1"",
   ""resources"": [
     {
       ""metadata"": {
-        ""guid"": ""5b4c763e-e77e-4709-9360-19863dfbb9bb"",
-        ""url"": ""/v2/service_usage_events/5b4c763e-e77e-4709-9360-19863dfbb9bb"",
-        ""created_at"": ""2015-07-28T12:59:08Z""
+        ""guid"": ""90b16f5c-e3f7-479c-ae44-3dbaed32171d"",
+        ""url"": ""/v2/service_usage_events/90b16f5c-e3f7-479c-ae44-3dbaed32171d"",
+        ""created_at"": ""2015-07-29T12:47:16Z""
       },
       ""entity"": {
         ""state"": ""CREATED"",
-        ""org_guid"": ""guid-8249b377-8e77-4cd7-bace-32f4b5494b23"",
-        ""space_guid"": ""guid-1df4b962-3ff0-489d-a4f9-09710b6f7a3c"",
-        ""space_name"": ""name-1396"",
-        ""service_instance_guid"": ""guid-71ddaf7a-f53d-4efc-84c3-d386cac8d7d5"",
-        ""service_instance_name"": ""name-1397"",
+        ""org_guid"": ""guid-3f021fd8-f317-4270-8dfc-a940ac260a2a"",
+        ""space_guid"": ""guid-f78e3664-c68c-4045-b591-d9de182325c9"",
+        ""space_name"": ""name-229"",
+        ""service_instance_guid"": ""guid-24bcc7cb-9fe6-4ffd-bf75-64ca96af5679"",
+        ""service_instance_name"": ""name-230"",
         ""service_instance_type"": ""type-5"",
-        ""service_plan_guid"": ""guid-31e19e2e-e5b7-4bf0-8507-2c80afb14281"",
-        ""service_plan_name"": ""name-1398"",
-        ""service_guid"": ""guid-94b4b215-3099-4e86-8f4e-c9f25e150fed"",
-        ""service_label"": ""label-63""
+        ""service_plan_guid"": ""guid-29b9ebe0-4e81-4f67-a3ae-73873616c077"",
+        ""service_plan_name"": ""name-231"",
+        ""service_guid"": ""guid-f5239f58-e13a-4022-97bd-17788e12a93f"",
+        ""service_label"": ""label-20""
       }
     }
   ]
@@ -62,21 +62,21 @@ namespace CloudFoundry.CloudController.V2.Test.Deserialization
             Assert.AreEqual("2", TestUtil.ToTestableString(page.Properties.TotalResults), true);
             Assert.AreEqual("2", TestUtil.ToTestableString(page.Properties.TotalPages), true);
             Assert.AreEqual("", TestUtil.ToTestableString(page.Properties.PreviousUrl), true);
-            Assert.AreEqual("/v2/service_usage_events?after_guid=d42975fa-246c-4bfa-88b3-3ce27e7ad278=asc=2=1", TestUtil.ToTestableString(page.Properties.NextUrl), true);
-            Assert.AreEqual("5b4c763e-e77e-4709-9360-19863dfbb9bb", TestUtil.ToTestableString(page[0].EntityMetadata.Guid), true);
-            Assert.AreEqual("/v2/service_usage_events/5b4c763e-e77e-4709-9360-19863dfbb9bb", TestUtil.ToTestableString(page[0].EntityMetadata.Url), true);
-            Assert.AreEqual("2015-07-28T12:59:08Z", TestUtil.ToTestableString(page[0].EntityMetadata.CreatedAt), true);
+            Assert.AreEqual("/v2/service_usage_events?after_guid=1c9232c9-40a7-4c75-b5ee-f03f00337224=asc=2=1", TestUtil.ToTestableString(page.Properties.NextUrl), true);
+            Assert.AreEqual("90b16f5c-e3f7-479c-ae44-3dbaed32171d", TestUtil.ToTestableString(page[0].EntityMetadata.Guid), true);
+            Assert.AreEqual("/v2/service_usage_events/90b16f5c-e3f7-479c-ae44-3dbaed32171d", TestUtil.ToTestableString(page[0].EntityMetadata.Url), true);
+            Assert.AreEqual("2015-07-29T12:47:16Z", TestUtil.ToTestableString(page[0].EntityMetadata.CreatedAt), true);
             Assert.AreEqual("CREATED", TestUtil.ToTestableString(page[0].State), true);
-            Assert.AreEqual("guid-8249b377-8e77-4cd7-bace-32f4b5494b23", TestUtil.ToTestableString(page[0].OrgGuid), true);
-            Assert.AreEqual("guid-1df4b962-3ff0-489d-a4f9-09710b6f7a3c", TestUtil.ToTestableString(page[0].SpaceGuid), true);
-            Assert.AreEqual("name-1396", TestUtil.ToTestableString(page[0].SpaceName), true);
-            Assert.AreEqual("guid-71ddaf7a-f53d-4efc-84c3-d386cac8d7d5", TestUtil.ToTestableString(page[0].ServiceInstanceGuid), true);
-            Assert.AreEqual("name-1397", TestUtil.ToTestableString(page[0].ServiceInstanceName), true);
+            Assert.AreEqual("guid-3f021fd8-f317-4270-8dfc-a940ac260a2a", TestUtil.ToTestableString(page[0].OrgGuid), true);
+            Assert.AreEqual("guid-f78e3664-c68c-4045-b591-d9de182325c9", TestUtil.ToTestableString(page[0].SpaceGuid), true);
+            Assert.AreEqual("name-229", TestUtil.ToTestableString(page[0].SpaceName), true);
+            Assert.AreEqual("guid-24bcc7cb-9fe6-4ffd-bf75-64ca96af5679", TestUtil.ToTestableString(page[0].ServiceInstanceGuid), true);
+            Assert.AreEqual("name-230", TestUtil.ToTestableString(page[0].ServiceInstanceName), true);
             Assert.AreEqual("type-5", TestUtil.ToTestableString(page[0].ServiceInstanceType), true);
-            Assert.AreEqual("guid-31e19e2e-e5b7-4bf0-8507-2c80afb14281", TestUtil.ToTestableString(page[0].ServicePlanGuid), true);
-            Assert.AreEqual("name-1398", TestUtil.ToTestableString(page[0].ServicePlanName), true);
-            Assert.AreEqual("guid-94b4b215-3099-4e86-8f4e-c9f25e150fed", TestUtil.ToTestableString(page[0].ServiceGuid), true);
-            Assert.AreEqual("label-63", TestUtil.ToTestableString(page[0].ServiceLabel), true);
+            Assert.AreEqual("guid-29b9ebe0-4e81-4f67-a3ae-73873616c077", TestUtil.ToTestableString(page[0].ServicePlanGuid), true);
+            Assert.AreEqual("name-231", TestUtil.ToTestableString(page[0].ServicePlanName), true);
+            Assert.AreEqual("guid-f5239f58-e13a-4022-97bd-17788e12a93f", TestUtil.ToTestableString(page[0].ServiceGuid), true);
+            Assert.AreEqual("label-20", TestUtil.ToTestableString(page[0].ServiceLabel), true);
         }
 
         [TestMethod]
@@ -84,41 +84,41 @@ namespace CloudFoundry.CloudController.V2.Test.Deserialization
         {
             string json = @"{
   ""metadata"": {
-    ""guid"": ""adffd23c-3440-42c2-9d20-fc843a411890"",
-    ""url"": ""/v2/service_usage_events/adffd23c-3440-42c2-9d20-fc843a411890"",
-    ""created_at"": ""2015-07-28T12:59:08Z""
+    ""guid"": ""f0ce8e4f-509f-477a-b8ca-b31ef5f8e5b7"",
+    ""url"": ""/v2/service_usage_events/f0ce8e4f-509f-477a-b8ca-b31ef5f8e5b7"",
+    ""created_at"": ""2015-07-29T12:47:16Z""
   },
   ""entity"": {
     ""state"": ""CREATED"",
-    ""org_guid"": ""guid-c7a357fa-8c87-4c6d-a2ed-23779b228c00"",
-    ""space_guid"": ""guid-c35c9f13-9fdd-4ef3-9660-0599394fe421"",
-    ""space_name"": ""name-1402"",
-    ""service_instance_guid"": ""guid-ae6eb2c2-2657-4619-b858-61e9c2aeba03"",
-    ""service_instance_name"": ""name-1403"",
+    ""org_guid"": ""guid-e1bb35ed-6a01-431f-85b0-cfd33b5a3d1a"",
+    ""space_guid"": ""guid-020b2b77-16d2-4abd-ae75-af6ef2116541"",
+    ""space_name"": ""name-235"",
+    ""service_instance_guid"": ""guid-134b2368-ff65-44fc-bd90-16a18e98229b"",
+    ""service_instance_name"": ""name-236"",
     ""service_instance_type"": ""type-7"",
-    ""service_plan_guid"": ""guid-ba89810f-b9c2-47bb-a48d-854fea366beb"",
-    ""service_plan_name"": ""name-1404"",
-    ""service_guid"": ""guid-fdaa812a-c506-4675-9cd4-fcc8259f548c"",
-    ""service_label"": ""label-65""
+    ""service_plan_guid"": ""guid-8d1561c7-1cc7-4197-85a4-82423dd2d728"",
+    ""service_plan_name"": ""name-237"",
+    ""service_guid"": ""guid-ad8bde75-ea1a-42d3-83f8-4326215fde33"",
+    ""service_label"": ""label-22""
   }
 }";
 
             RetrieveServiceUsageEventResponse obj = Utilities.DeserializeJson<RetrieveServiceUsageEventResponse>(json);
 
-            Assert.AreEqual("adffd23c-3440-42c2-9d20-fc843a411890", TestUtil.ToTestableString(obj.EntityMetadata.Guid), true);
-            Assert.AreEqual("/v2/service_usage_events/adffd23c-3440-42c2-9d20-fc843a411890", TestUtil.ToTestableString(obj.EntityMetadata.Url), true);
-            Assert.AreEqual("2015-07-28T12:59:08Z", TestUtil.ToTestableString(obj.EntityMetadata.CreatedAt), true);
+            Assert.AreEqual("f0ce8e4f-509f-477a-b8ca-b31ef5f8e5b7", TestUtil.ToTestableString(obj.EntityMetadata.Guid), true);
+            Assert.AreEqual("/v2/service_usage_events/f0ce8e4f-509f-477a-b8ca-b31ef5f8e5b7", TestUtil.ToTestableString(obj.EntityMetadata.Url), true);
+            Assert.AreEqual("2015-07-29T12:47:16Z", TestUtil.ToTestableString(obj.EntityMetadata.CreatedAt), true);
             Assert.AreEqual("CREATED", TestUtil.ToTestableString(obj.State), true);
-            Assert.AreEqual("guid-c7a357fa-8c87-4c6d-a2ed-23779b228c00", TestUtil.ToTestableString(obj.OrgGuid), true);
-            Assert.AreEqual("guid-c35c9f13-9fdd-4ef3-9660-0599394fe421", TestUtil.ToTestableString(obj.SpaceGuid), true);
-            Assert.AreEqual("name-1402", TestUtil.ToTestableString(obj.SpaceName), true);
-            Assert.AreEqual("guid-ae6eb2c2-2657-4619-b858-61e9c2aeba03", TestUtil.ToTestableString(obj.ServiceInstanceGuid), true);
-            Assert.AreEqual("name-1403", TestUtil.ToTestableString(obj.ServiceInstanceName), true);
+            Assert.AreEqual("guid-e1bb35ed-6a01-431f-85b0-cfd33b5a3d1a", TestUtil.ToTestableString(obj.OrgGuid), true);
+            Assert.AreEqual("guid-020b2b77-16d2-4abd-ae75-af6ef2116541", TestUtil.ToTestableString(obj.SpaceGuid), true);
+            Assert.AreEqual("name-235", TestUtil.ToTestableString(obj.SpaceName), true);
+            Assert.AreEqual("guid-134b2368-ff65-44fc-bd90-16a18e98229b", TestUtil.ToTestableString(obj.ServiceInstanceGuid), true);
+            Assert.AreEqual("name-236", TestUtil.ToTestableString(obj.ServiceInstanceName), true);
             Assert.AreEqual("type-7", TestUtil.ToTestableString(obj.ServiceInstanceType), true);
-            Assert.AreEqual("guid-ba89810f-b9c2-47bb-a48d-854fea366beb", TestUtil.ToTestableString(obj.ServicePlanGuid), true);
-            Assert.AreEqual("name-1404", TestUtil.ToTestableString(obj.ServicePlanName), true);
-            Assert.AreEqual("guid-fdaa812a-c506-4675-9cd4-fcc8259f548c", TestUtil.ToTestableString(obj.ServiceGuid), true);
-            Assert.AreEqual("label-65", TestUtil.ToTestableString(obj.ServiceLabel), true);
+            Assert.AreEqual("guid-8d1561c7-1cc7-4197-85a4-82423dd2d728", TestUtil.ToTestableString(obj.ServicePlanGuid), true);
+            Assert.AreEqual("name-237", TestUtil.ToTestableString(obj.ServicePlanName), true);
+            Assert.AreEqual("guid-ad8bde75-ea1a-42d3-83f8-4326215fde33", TestUtil.ToTestableString(obj.ServiceGuid), true);
+            Assert.AreEqual("label-22", TestUtil.ToTestableString(obj.ServiceLabel), true);
         }
     }
 }

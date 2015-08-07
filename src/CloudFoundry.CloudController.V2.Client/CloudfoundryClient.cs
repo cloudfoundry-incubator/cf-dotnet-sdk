@@ -20,7 +20,7 @@ namespace CloudFoundry.CloudController.V2.Client
         /// <param name="cloudTarget">The cloud target.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         public CloudFoundryClient(Uri cloudTarget, CancellationToken cancellationToken)
-            : this(cloudTarget, cancellationToken, null, false)
+            : this(cloudTarget, cancellationToken, null)
         {
         }
 
@@ -31,7 +31,7 @@ namespace CloudFoundry.CloudController.V2.Client
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <param name="httpProxy">The HTTP proxy.</param>
         public CloudFoundryClient(Uri cloudTarget, CancellationToken cancellationToken, Uri httpProxy)
-            : this(cloudTarget, cancellationToken, httpProxy, false)
+            : this(cloudTarget, cancellationToken, httpProxy, false, false)
         {
         }
 
@@ -43,7 +43,20 @@ namespace CloudFoundry.CloudController.V2.Client
         /// <param name="httpProxy">The HTTP proxy.</param>
         /// <param name="skipCertificateValidation">if set to <c>true</c> it will skip TLS certificate validation for HTTP requests.</param>
         public CloudFoundryClient(Uri cloudTarget, CancellationToken cancellationToken, Uri httpProxy, bool skipCertificateValidation)
-            : base(cloudTarget, cancellationToken, httpProxy, skipCertificateValidation)
+            : base(cloudTarget, cancellationToken, httpProxy, skipCertificateValidation, false)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CloudFoundryClient" /> class.
+        /// </summary>
+        /// <param name="cloudTarget">The cloud target.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <param name="httpProxy">The HTTP proxy.</param>
+        /// <param name="skipCertificateValidation">if set to <c>true</c> it will skip TLS certificate validation for HTTP requests.</param>
+        /// <param name="useStrictStatusCodeChecking">throw exception if the successful http status code returned from the server does not match the expected code</param>
+        public CloudFoundryClient(Uri cloudTarget, CancellationToken cancellationToken, Uri httpProxy, bool skipCertificateValidation, bool useStrictStatusCodeChecking)
+            : base(cloudTarget, cancellationToken, httpProxy, skipCertificateValidation, useStrictStatusCodeChecking)
         {
         }
 
@@ -249,6 +262,14 @@ namespace CloudFoundry.CloudController.V2.Client
         public ServiceInstancesEndpoint ServiceInstances { get; private set; }
 
         /// <summary>
+        /// Gets the service keys endpoint.
+        /// </summary>
+        /// <value>
+        /// The service keys endpoint.
+        /// </value>
+        public ServiceKeysEndpoint ServiceKeys { get; private set; }
+
+        /// <summary>
         /// Gets the service plans endpoint.
         /// </summary>
         /// <value>
@@ -433,6 +454,7 @@ namespace CloudFoundry.CloudController.V2.Client
             this.ServiceBindings = new ServiceBindingsEndpoint(this);
             this.ServiceBrokers = new ServiceBrokersEndpoint(this);
             this.ServiceInstances = new ServiceInstancesEndpoint(this);
+            this.ServiceKeys = new ServiceKeysEndpoint(this);
             this.ServicePlans = new ServicePlansEndpoint(this);
             this.ServicePlanVisibilities = new ServicePlanVisibilitiesEndpoint(this);
             this.Services = new ServicesEndpoint(this);

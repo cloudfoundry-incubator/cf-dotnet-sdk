@@ -24,22 +24,9 @@ namespace CloudFoundry.CloudController.V3.Test.Serialization
 {
     [TestClass]
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public class ProcessesTest
+    public class ProcessesExperimentalTest
     {
 
-        [TestMethod]
-        public void TestScalingProcessRequest()
-        {
-            string json = @"{
-  ""instances"": 3
-}";
-
-            ScalingProcessRequest request = new ScalingProcessRequest();
-
-            request.Instances = 3;
-            string result = JsonConvert.SerializeObject(request, Formatting.None);
-            Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
-        }
         [TestMethod]
         public void TestUpdateProcessRequest()
         {
@@ -50,6 +37,19 @@ namespace CloudFoundry.CloudController.V3.Test.Serialization
             UpdateProcessRequest request = new UpdateProcessRequest();
 
             request.Command = "X";
+            string result = JsonConvert.SerializeObject(request, Formatting.None);
+            Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
+        }
+        [TestMethod]
+        public void TestScalingProcessRequest()
+        {
+            string json = @"{
+  ""instances"": 3
+}";
+
+            ScalingProcessRequest request = new ScalingProcessRequest();
+
+            request.Instances = 3;
             string result = JsonConvert.SerializeObject(request, Formatting.None);
             Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
         }

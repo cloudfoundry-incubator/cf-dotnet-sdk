@@ -53,7 +53,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all matching resources
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/202/resource_match/list_all_matching_resources.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/208/resource_match/list_all_matching_resources.html"</para>
         /// </summary>
         public async Task<ListAllMatchingResourcesResponse[]> ListAllMatchingResources(ListAllMatchingResourcesRequest[] value)
         {

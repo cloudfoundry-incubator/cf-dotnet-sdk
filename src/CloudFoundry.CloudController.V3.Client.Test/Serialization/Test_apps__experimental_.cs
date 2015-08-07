@@ -24,19 +24,32 @@ namespace CloudFoundry.CloudController.V3.Test.Serialization
 {
     [TestClass]
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public class AppsTest
+    public class AppsExperimentalTest
     {
 
+        [TestMethod]
+        public void TestScalingProcessFromItsAppRequest()
+        {
+            string json = @"{
+  ""instances"": 3
+}";
+
+            ScalingProcessFromItsAppRequest request = new ScalingProcessFromItsAppRequest();
+
+            request.Instances = 3;
+            string result = JsonConvert.SerializeObject(request, Formatting.None);
+            Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
+        }
         [TestMethod]
         public void TestAssignDropletAsAppsCurrentDropletRequest()
         {
             string json = @"{
-  ""desired_droplet_guid"": ""guid-71f0b415-c533-499f-b2e6-5b23458f0d94""
+  ""desired_droplet_guid"": ""guid-e7da6c9e-2e7a-4360-becb-60d22bfdc093""
 }";
 
             AssignDropletAsAppsCurrentDropletRequest request = new AssignDropletAsAppsCurrentDropletRequest();
 
-            request.DesiredDropletGuid = "guid-71f0b415-c533-499f-b2e6-5b23458f0d94";
+            request.DesiredDropletGuid = "guid-e7da6c9e-2e7a-4360-becb-60d22bfdc093";
             string result = JsonConvert.SerializeObject(request, Formatting.None);
             Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
         }
@@ -60,24 +73,11 @@ namespace CloudFoundry.CloudController.V3.Test.Serialization
             Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
         }
         [TestMethod]
-        public void TestScalingProcessFromItsAppRequest()
-        {
-            string json = @"{
-  ""instances"": 3
-}";
-
-            ScalingProcessFromItsAppRequest request = new ScalingProcessFromItsAppRequest();
-
-            request.Instances = 3;
-            string result = JsonConvert.SerializeObject(request, Formatting.None);
-            Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
-        }
-        [TestMethod]
         public void TestCreateAppRequest()
         {
             string json = @"{
   ""name"": ""my_app"",
-  ""space_guid"": ""7f257247-1447-47cd-8791-5066b6574499"",
+  ""space_guid"": ""8bcccbc4-675e-4579-b352-0128cc48fc1f"",
   ""environment_variables"": {
     ""open"": ""source""
   }
@@ -86,7 +86,7 @@ namespace CloudFoundry.CloudController.V3.Test.Serialization
             CreateAppRequest request = new CreateAppRequest();
 
             request.Name = "my_app";
-            request.SpaceGuid = new Guid("7f257247-1447-47cd-8791-5066b6574499");
+            request.SpaceGuid = new Guid("8bcccbc4-675e-4579-b352-0128cc48fc1f");
             request.EnvironmentVariables = TestUtil.GetJsonDictonary(@"{""open"":""source""}");
 
             string result = JsonConvert.SerializeObject(request, Formatting.None);

@@ -76,7 +76,7 @@ namespace CloudFoundry.CloudController.Test.Integration
 
             string authEndpoint = cfclient.Info.GetInfo().Result.AuthorizationEndpoint;
 
-            CCV3.CloudFoundryClient client = new CCV3.CloudFoundryClient(new Uri(ServerUrl), cancellationToken, null, true, new Uri(authEndpoint));
+            CCV3.CloudFoundryClient client = new CCV3.CloudFoundryClient(new Uri(ServerUrl), cancellationToken, null, true, false, new Uri(authEndpoint));
             return client;
         }
 

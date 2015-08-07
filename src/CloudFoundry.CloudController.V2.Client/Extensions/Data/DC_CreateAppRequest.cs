@@ -29,5 +29,13 @@ namespace CloudFoundry.CloudController.V2.Client.Data
             get;
             set;
         }
+
+        /// <inheritdoc />
+        [JsonProperty("stack_guid", NullValueHandling = NullValueHandling.Ignore)]
+        public new Guid? StackGuid
+        {
+            get;
+            set;
+        }
     }
 }

@@ -24,19 +24,32 @@ namespace CloudFoundry.CloudController.V3.Test.Serialization
 {
     [TestClass]
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public class AppRoutesTest
+    public class AppRoutesExperimentalTest
     {
 
         [TestMethod]
         public void TestUnmapRouteRequest()
         {
             string json = @"{
-  ""route_guid"": ""57bd7cbb-68b8-4433-a238-75806468d322""
+  ""route_guid"": ""dc65ce21-2d06-4e8d-83e5-bc8e277632d5""
 }";
 
             UnmapRouteRequest request = new UnmapRouteRequest();
 
-            request.RouteGuid = new Guid("57bd7cbb-68b8-4433-a238-75806468d322");
+            request.RouteGuid = new Guid("dc65ce21-2d06-4e8d-83e5-bc8e277632d5");
+            string result = JsonConvert.SerializeObject(request, Formatting.None);
+            Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
+        }
+        [TestMethod]
+        public void TestMapRouteRequest()
+        {
+            string json = @"{
+  ""route_guid"": ""9113ffb2-c846-43b3-9505-6c4c0b406b98""
+}";
+
+            MapRouteRequest request = new MapRouteRequest();
+
+            request.RouteGuid = new Guid("9113ffb2-c846-43b3-9505-6c4c0b406b98");
             string result = JsonConvert.SerializeObject(request, Formatting.None);
             Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
         }

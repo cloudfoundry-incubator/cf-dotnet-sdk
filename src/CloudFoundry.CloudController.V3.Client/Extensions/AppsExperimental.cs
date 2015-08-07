@@ -14,7 +14,7 @@ namespace CloudFoundry.CloudController.V3.Client
     using CloudFoundry.CloudController.V3.Client.Data;
     using Newtonsoft.Json;
 
-    public partial class AppsEndpoint
+    public partial class AppsExperimentalEndpoint
     {
         private const int StepCount = 8;
 
@@ -48,14 +48,14 @@ namespace CloudFoundry.CloudController.V3.Client
 
             // Step 1 - Check if application exists
             this.TriggerPushProgressEvent(usedSteps, "Checking if application exists");
-            GetAppResponse app = await this.Client.Apps.GetApp(appGuid);
+            GetAppResponse app = await this.Client.AppsExperimental.GetApp(appGuid);
 
             usedSteps += 1;
 
             // Step 2 - Create package
             CreatePackageRequest createPackage = new CreatePackageRequest();
             createPackage.Type = "bits";
-            CreatePackageResponse packageResponse = await this.Client.Packages.CreatePackage(appGuid, createPackage);
+            CreatePackageResponse packageResponse = await this.Client.PackagesExperimental.CreatePackage(appGuid, createPackage);
 
             Guid packageId = new Guid(packageResponse.Guid.ToString());
 
@@ -80,12 +80,12 @@ namespace CloudFoundry.CloudController.V3.Client
                 // Step 4 - Upload zip to CloudFoundry ...
                 this.TriggerPushProgressEvent(usedSteps, "Uploading zip package ...");
 
-                await this.Client.Packages.UploadBits(packageId, zippedPayload);
+                await this.Client.PackagesExperimental.UploadBits(packageId, zippedPayload);
 
                 bool uploadProcessed = false;
                 while (!uploadProcessed)
                 {
-                    GetPackageResponse getPackage = await this.Client.Packages.GetPackage(packageId);
+                    GetPackageResponse getPackage = await this.Client.PackagesExperimental.GetPackage(packageId);
                     switch (getPackage.State)
                     {
                         case "FAILED":
@@ -117,8 +117,8 @@ namespace CloudFoundry.CloudController.V3.Client
             StagePackageRequest stagePackage = new StagePackageRequest();
             stagePackage.Stack = stack;
             stagePackage.BuildpackGitUrl = buildpackGitUrl;
-                
-            StagePackageResponse stageResponse = await this.Client.Packages.StagePackage(packageId, stagePackage);
+
+            StagePackageResponse stageResponse = await this.Client.PackagesExperimental.StagePackage(packageId, stagePackage);
             if (this.CheckCancellation())
             {
                 return;
@@ -130,7 +130,7 @@ namespace CloudFoundry.CloudController.V3.Client
                 bool staged = false;
                 while (!staged)
                 {
-                    GetDropletResponse getDroplet = await this.Client.Droplets.GetDroplet(new Guid(stageResponse.Guid.ToString()));
+                    GetDropletResponse getDroplet = await this.Client.DropletsExperimental.GetDroplet(new Guid(stageResponse.Guid.ToString()));
                     switch (getDroplet.State)
                     {
                         case "FAILED":
@@ -169,7 +169,7 @@ namespace CloudFoundry.CloudController.V3.Client
                 // Step 7 - Start Application
                 StartingAppRequest startApp = new StartingAppRequest();
 
-                StartingAppResponse response = await this.Client.Apps.StartingApp(appGuid, startApp);
+                StartingAppResponse response = await this.Client.AppsExperimental.StartingApp(appGuid, startApp);
                 if (this.CheckCancellation())
                 {
                     return;
