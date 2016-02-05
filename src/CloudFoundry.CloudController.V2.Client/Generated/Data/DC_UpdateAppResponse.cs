@@ -21,7 +21,7 @@ namespace CloudFoundry.CloudController.V2.Client.Data
 {
     /// <summary>
     /// Data class used for deserializing the "CloudFoundry.CloudController.V2.Client.AppsEndpoint.UpdateApp()" Response
-    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/202/apps/updating_an_app.html"</para>
+    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/210/apps/updating_an_app.html"</para>
     /// </summary>
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
     public partial class UpdateAppResponse : CloudFoundry.CloudController.V2.Client.Data.Base.AbstractUpdateAppResponse
@@ -33,7 +33,7 @@ namespace CloudFoundry.CloudController.V2.Client.Data.Base
 {
     /// <summary>
     /// Base abstract data class used for deserializing the "CloudFoundry.CloudController.V2.Client.AppsEndpoint.UpdateApp()" Response
-    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/202/apps/updating_an_app.html"</para>
+    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/210/apps/updating_an_app.html"</para>
     /// </summary>
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
     public abstract class AbstractUpdateAppResponse : IResponse
@@ -282,6 +282,16 @@ namespace CloudFoundry.CloudController.V2.Client.Data.Base
         /// </summary>
         [JsonProperty("detected_start_command", NullValueHandling = NullValueHandling.Ignore)]
         public string DetectedStartCommand
+        {
+            get;
+            set;
+        }
+
+        /// <summary> 
+        /// <para>The Enable Ssh</para>
+        /// </summary>
+        [JsonProperty("enable_ssh", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? EnableSsh
         {
             get;
             set;

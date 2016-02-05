@@ -21,7 +21,7 @@ namespace CloudFoundry.CloudController.V2.Client.Data
 {
     /// <summary>
     /// Data class used for deserializing the "CloudFoundry.CloudController.V2.Client.AppsEndpoint.RemoveServiceBindingFromApp()" Response
-    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/202/apps/remove_service_binding_from_the_app.html"</para>
+    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/210/apps/remove_service_binding_from_the_app.html"</para>
     /// </summary>
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
     public partial class RemoveServiceBindingFromAppResponse : CloudFoundry.CloudController.V2.Client.Data.Base.AbstractRemoveServiceBindingFromAppResponse
@@ -33,7 +33,7 @@ namespace CloudFoundry.CloudController.V2.Client.Data.Base
 {
     /// <summary>
     /// Base abstract data class used for deserializing the "CloudFoundry.CloudController.V2.Client.AppsEndpoint.RemoveServiceBindingFromApp()" Response
-    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/202/apps/remove_service_binding_from_the_app.html"</para>
+    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/210/apps/remove_service_binding_from_the_app.html"</para>
     /// </summary>
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
     public abstract class AbstractRemoveServiceBindingFromAppResponse : IResponse
@@ -282,6 +282,16 @@ namespace CloudFoundry.CloudController.V2.Client.Data.Base
         /// </summary>
         [JsonProperty("detected_start_command", NullValueHandling = NullValueHandling.Ignore)]
         public string DetectedStartCommand
+        {
+            get;
+            set;
+        }
+
+        /// <summary> 
+        /// <para>The Enable Ssh</para>
+        /// </summary>
+        [JsonProperty("enable_ssh", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? EnableSsh
         {
             get;
             set;

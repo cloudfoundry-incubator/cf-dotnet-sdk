@@ -24,12 +24,12 @@ using System.Threading.Tasks;
 namespace CloudFoundry.CloudController.V3.Client
 {
     /// <summary>
-    /// Processes Endpoint
+    /// ProcessesExperimental Endpoint
     /// </summary>
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public partial class ProcessesEndpoint : CloudFoundry.CloudController.V3.Client.Base.AbstractProcessesEndpoint
+    public partial class ProcessesExperimentalEndpoint : CloudFoundry.CloudController.V3.Client.Base.AbstractProcessesExperimentalEndpoint
     {
-        internal ProcessesEndpoint(CloudFoundryClient client) : base()
+        internal ProcessesExperimentalEndpoint(CloudFoundryClient client) : base()
         {
             this.Client = client;
         }
@@ -39,65 +39,21 @@ namespace CloudFoundry.CloudController.V3.Client
 namespace CloudFoundry.CloudController.V3.Client.Base
 {
     /// <summary>
-    /// Base abstract class for Processes Endpoint
+    /// Base abstract class for ProcessesExperimental Endpoint
     /// </summary>
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public abstract class AbstractProcessesEndpoint : BaseEndpoint
+    public abstract class AbstractProcessesExperimentalEndpoint : BaseEndpoint
     {
         /// <summary>
         /// Initializes the class
         /// </summary>
-        protected AbstractProcessesEndpoint()
+        protected AbstractProcessesExperimentalEndpoint()
         {
-        }
-
-        /// <summary>
-        /// Scaling a Process
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/processes__experimental_/scaling_a_process.html"</para>
-        /// </summary>
-        public async Task<ScalingProcessResponse> ScalingProcess(Guid? guid, ScalingProcessRequest value)
-        {
-            UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
-            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/processes/{0}/scale", guid);
-            var client = this.GetHttpClient();
-            client.Uri = uriBuilder.Uri;
-            client.Method = HttpMethod.Put;
-            var authHeader = await BuildAuthenticationHeader();
-            if (!string.IsNullOrWhiteSpace(authHeader.Key))
-            {
-                client.Headers.Add(authHeader);
-            }
-            client.ContentType = "application/x-www-form-urlencoded";
-            client.Content = JsonConvert.SerializeObject(value).ConvertToStream();
-            var expectedReturnStatus = 200;
-            var response = await this.SendAsync(client, expectedReturnStatus);
-            return Utilities.DeserializeJson<ScalingProcessResponse>(await response.ReadContentAsStringAsync());
-        }
-
-        /// <summary>
-        /// Get a Process
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/processes__experimental_/get_a_process.html"</para>
-        /// </summary>
-        public async Task<GetProcessResponse> GetProcess(Guid? guid)
-        {
-            UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
-            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/processes/{0}", guid);
-            var client = this.GetHttpClient();
-            client.Uri = uriBuilder.Uri;
-            client.Method = HttpMethod.Get;
-            var authHeader = await BuildAuthenticationHeader();
-            if (!string.IsNullOrWhiteSpace(authHeader.Key))
-            {
-                client.Headers.Add(authHeader);
-            }
-            var expectedReturnStatus = 200;
-            var response = await this.SendAsync(client, expectedReturnStatus);
-            return Utilities.DeserializeJson<GetProcessResponse>(await response.ReadContentAsStringAsync());
         }
 
         /// <summary>
         /// Updating a Process
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/processes__experimental_/updating_a_process.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/processes__experimental_/updating_a_process.html"</para>
         /// </summary>
         public async Task<UpdateProcessResponse> UpdateProcess(Guid? guid, UpdateProcessRequest value)
         {
@@ -112,7 +68,7 @@ namespace CloudFoundry.CloudController.V3.Client.Base
                 client.Headers.Add(authHeader);
             }
             client.ContentType = "application/x-www-form-urlencoded";
-            client.Content = JsonConvert.SerializeObject(value).ConvertToStream();
+            client.Content = ((string)JsonConvert.SerializeObject(value)).ConvertToStream();
             var expectedReturnStatus = 200;
             var response = await this.SendAsync(client, expectedReturnStatus);
             return Utilities.DeserializeJson<UpdateProcessResponse>(await response.ReadContentAsStringAsync());
@@ -120,7 +76,7 @@ namespace CloudFoundry.CloudController.V3.Client.Base
 
         /// <summary>
         /// List all Processes
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/processes__experimental_/list_all_processes.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/processes__experimental_/list_all_processes.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllProcessesResponse>> ListAllProcesses()
         {
@@ -129,7 +85,7 @@ namespace CloudFoundry.CloudController.V3.Client.Base
 
         /// <summary>
         /// List all Processes
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/processes__experimental_/list_all_processes.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/processes__experimental_/list_all_processes.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllProcessesResponse>> ListAllProcesses(RequestOptions options)
         {
@@ -147,6 +103,50 @@ namespace CloudFoundry.CloudController.V3.Client.Base
             var expectedReturnStatus = 200;
             var response = await this.SendAsync(client, expectedReturnStatus);
             return Utilities.DeserializePage<ListAllProcessesResponse>(await response.ReadContentAsStringAsync(), this.Client);
+        }
+
+        /// <summary>
+        /// Scaling a Process
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/processes__experimental_/scaling_a_process.html"</para>
+        /// </summary>
+        public async Task<ScalingProcessResponse> ScalingProcess(Guid? guid, ScalingProcessRequest value)
+        {
+            UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
+            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/processes/{0}/scale", guid);
+            var client = this.GetHttpClient();
+            client.Uri = uriBuilder.Uri;
+            client.Method = HttpMethod.Put;
+            var authHeader = await BuildAuthenticationHeader();
+            if (!string.IsNullOrWhiteSpace(authHeader.Key))
+            {
+                client.Headers.Add(authHeader);
+            }
+            client.ContentType = "application/x-www-form-urlencoded";
+            client.Content = ((string)JsonConvert.SerializeObject(value)).ConvertToStream();
+            var expectedReturnStatus = 200;
+            var response = await this.SendAsync(client, expectedReturnStatus);
+            return Utilities.DeserializeJson<ScalingProcessResponse>(await response.ReadContentAsStringAsync());
+        }
+
+        /// <summary>
+        /// Get a Process
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/processes__experimental_/get_a_process.html"</para>
+        /// </summary>
+        public async Task<GetProcessResponse> GetProcess(Guid? guid)
+        {
+            UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
+            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/processes/{0}", guid);
+            var client = this.GetHttpClient();
+            client.Uri = uriBuilder.Uri;
+            client.Method = HttpMethod.Get;
+            var authHeader = await BuildAuthenticationHeader();
+            if (!string.IsNullOrWhiteSpace(authHeader.Key))
+            {
+                client.Headers.Add(authHeader);
+            }
+            var expectedReturnStatus = 200;
+            var response = await this.SendAsync(client, expectedReturnStatus);
+            return Utilities.DeserializeJson<GetProcessResponse>(await response.ReadContentAsStringAsync());
         }
     }
 }

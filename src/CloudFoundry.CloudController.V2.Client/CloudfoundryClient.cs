@@ -291,6 +291,14 @@ namespace CloudFoundry.CloudController.V2.Client
         public ServiceInstancesEndpoint ServiceInstances { get; private set; }
 
         /// <summary>
+        /// Gets the service keys endpoint.
+        /// </summary>
+        /// <value>
+        /// The service keys endpoint.
+        /// </value>
+        public ServiceKeysEndpoint ServiceKeys { get; private set; }
+
+        /// <summary>
         /// Gets the service plans endpoint.
         /// </summary>
         /// <value>
@@ -483,6 +491,7 @@ namespace CloudFoundry.CloudController.V2.Client
             this.ServiceBindings = new ServiceBindingsEndpoint(this);
             this.ServiceBrokers = new ServiceBrokersEndpoint(this);
             this.ServiceInstances = new ServiceInstancesEndpoint(this);
+            this.ServiceKeys = new ServiceKeysEndpoint(this);
             this.ServicePlans = new ServicePlansEndpoint(this);
             this.ServicePlanVisibilities = new ServicePlanVisibilitiesEndpoint(this);
             this.Services = new ServicesEndpoint(this);

@@ -28,30 +28,34 @@ namespace CloudFoundry.CloudController.V2.Test.Serialization
     {
 
         [TestMethod]
-        public void TestCreateRouteRequest()
-        {
-            string json = @"{
-  ""domain_guid"": ""8218a191-7943-4b48-9e8a-9f74dc7317f1"",
-  ""space_guid"": ""12067d42-2109-4c48-9f17-8926dd681ace""
-}";
-
-            CreateRouteRequest request = new CreateRouteRequest();
-
-            request.DomainGuid = new Guid("8218a191-7943-4b48-9e8a-9f74dc7317f1");
-            request.SpaceGuid = new Guid("12067d42-2109-4c48-9f17-8926dd681ace");
-            string result = JsonConvert.SerializeObject(request, Formatting.None);
-            Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
-        }
-        [TestMethod]
         public void TestUpdateRouteRequest()
         {
             string json = @"{
-  ""host"": ""new_host""
+  ""host"": ""new_host"",
+  ""path"": ""/apps/v1/path""
 }";
 
             UpdateRouteRequest request = new UpdateRouteRequest();
 
             request.Host = "new_host";
+            request.Path = "/apps/v1/path";
+            string result = JsonConvert.SerializeObject(request, Formatting.None);
+            Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
+        }
+        [TestMethod]
+        public void TestCreateRouteRequest()
+        {
+            string json = @"{
+  ""domain_guid"": ""14e7c4a5-1b21-4d4b-ac7a-431f622f2fde"",
+  ""space_guid"": ""b9039181-b780-422e-8a6c-9dad1fd6b9d3"",
+  ""path"": ""/apps/v1/path""
+}";
+
+            CreateRouteRequest request = new CreateRouteRequest();
+
+            request.DomainGuid = new Guid("14e7c4a5-1b21-4d4b-ac7a-431f622f2fde");
+            request.SpaceGuid = new Guid("b9039181-b780-422e-8a6c-9dad1fd6b9d3");
+            request.Path = "/apps/v1/path";
             string result = JsonConvert.SerializeObject(request, Formatting.None);
             Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
         }

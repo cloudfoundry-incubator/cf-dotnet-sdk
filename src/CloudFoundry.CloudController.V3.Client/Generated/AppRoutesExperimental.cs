@@ -24,12 +24,12 @@ using System.Threading.Tasks;
 namespace CloudFoundry.CloudController.V3.Client
 {
     /// <summary>
-    /// AppRoutes Endpoint
+    /// AppRoutesExperimental Endpoint
     /// </summary>
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public partial class AppRoutesEndpoint : CloudFoundry.CloudController.V3.Client.Base.AbstractAppRoutesEndpoint
+    public partial class AppRoutesExperimentalEndpoint : CloudFoundry.CloudController.V3.Client.Base.AbstractAppRoutesExperimentalEndpoint
     {
-        internal AppRoutesEndpoint(CloudFoundryClient client) : base()
+        internal AppRoutesExperimentalEndpoint(CloudFoundryClient client) : base()
         {
             this.Client = client;
         }
@@ -39,21 +39,21 @@ namespace CloudFoundry.CloudController.V3.Client
 namespace CloudFoundry.CloudController.V3.Client.Base
 {
     /// <summary>
-    /// Base abstract class for AppRoutes Endpoint
+    /// Base abstract class for AppRoutesExperimental Endpoint
     /// </summary>
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public abstract class AbstractAppRoutesEndpoint : BaseEndpoint
+    public abstract class AbstractAppRoutesExperimentalEndpoint : BaseEndpoint
     {
         /// <summary>
         /// Initializes the class
         /// </summary>
-        protected AbstractAppRoutesEndpoint()
+        protected AbstractAppRoutesExperimentalEndpoint()
         {
         }
 
         /// <summary>
         /// List routes
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/app_routes__experimental_/list_routes.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/app_routes__experimental_/list_routes.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListRoutesResponse>> ListRoutes(Guid? guid)
         {
@@ -62,7 +62,7 @@ namespace CloudFoundry.CloudController.V3.Client.Base
 
         /// <summary>
         /// List routes
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/app_routes__experimental_/list_routes.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/app_routes__experimental_/list_routes.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListRoutesResponse>> ListRoutes(Guid? guid, RequestOptions options)
         {
@@ -84,7 +84,7 @@ namespace CloudFoundry.CloudController.V3.Client.Base
 
         /// <summary>
         /// Unmap a Route
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/app_routes__experimental_/unmap_a_route.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/app_routes__experimental_/unmap_a_route.html"</para>
         /// </summary>
         public async Task UnmapRoute(Guid? guid, UnmapRouteRequest value)
         {
@@ -99,7 +99,7 @@ namespace CloudFoundry.CloudController.V3.Client.Base
                 client.Headers.Add(authHeader);
             }
             client.ContentType = "application/x-www-form-urlencoded";
-            client.Content = JsonConvert.SerializeObject(value).ConvertToStream();
+            client.Content = ((string)JsonConvert.SerializeObject(value)).ConvertToStream();
             var expectedReturnStatus = 204;
             var response = await this.SendAsync(client, expectedReturnStatus);
         }

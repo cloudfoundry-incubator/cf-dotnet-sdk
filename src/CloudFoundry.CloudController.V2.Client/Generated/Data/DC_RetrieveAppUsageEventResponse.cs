@@ -21,7 +21,7 @@ namespace CloudFoundry.CloudController.V2.Client.Data
 {
     /// <summary>
     /// Data class used for deserializing the "CloudFoundry.CloudController.V2.Client.AppUsageEventsEndpoint.RetrieveAppUsageEvent()" Response
-    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/202/app_usage_events/retrieve_a_particular_app_usage_event.html"</para>
+    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/210/app_usage_events/retrieve_a_particular_app_usage_event.html"</para>
     /// </summary>
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
     public partial class RetrieveAppUsageEventResponse : CloudFoundry.CloudController.V2.Client.Data.Base.AbstractRetrieveAppUsageEventResponse
@@ -33,7 +33,7 @@ namespace CloudFoundry.CloudController.V2.Client.Data.Base
 {
     /// <summary>
     /// Base abstract data class used for deserializing the "CloudFoundry.CloudController.V2.Client.AppUsageEventsEndpoint.RetrieveAppUsageEvent()" Response
-    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/202/app_usage_events/retrieve_a_particular_app_usage_event.html"</para>
+    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/210/app_usage_events/retrieve_a_particular_app_usage_event.html"</para>
     /// </summary>
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
     public abstract class AbstractRetrieveAppUsageEventResponse : IResponse
@@ -152,6 +152,36 @@ namespace CloudFoundry.CloudController.V2.Client.Data.Base
         /// </summary>
         [JsonProperty("package_state", NullValueHandling = NullValueHandling.Ignore)]
         public string PackageState
+        {
+            get;
+            set;
+        }
+
+        /// <summary> 
+        /// <para>The Parent App Guid</para>
+        /// </summary>
+        [JsonProperty("parent_app_guid", NullValueHandling = NullValueHandling.Ignore)]
+        public Guid? ParentAppGuid
+        {
+            get;
+            set;
+        }
+
+        /// <summary> 
+        /// <para>The Parent App Name</para>
+        /// </summary>
+        [JsonProperty("parent_app_name", NullValueHandling = NullValueHandling.Ignore)]
+        public dynamic ParentAppName
+        {
+            get;
+            set;
+        }
+
+        /// <summary> 
+        /// <para>The Process Type</para>
+        /// </summary>
+        [JsonProperty("process_type", NullValueHandling = NullValueHandling.Ignore)]
+        public string ProcessType
         {
             get;
             set;

@@ -24,22 +24,9 @@ namespace CloudFoundry.CloudController.V3.Test.Serialization
 {
     [TestClass]
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public class AppsTest
+    public class AppsExperimentalTest
     {
 
-        [TestMethod]
-        public void TestAssignDropletAsAppsCurrentDropletRequest()
-        {
-            string json = @"{
-  ""desired_droplet_guid"": ""guid-71f0b415-c533-499f-b2e6-5b23458f0d94""
-}";
-
-            AssignDropletAsAppsCurrentDropletRequest request = new AssignDropletAsAppsCurrentDropletRequest();
-
-            request.DesiredDropletGuid = "guid-71f0b415-c533-499f-b2e6-5b23458f0d94";
-            string result = JsonConvert.SerializeObject(request, Formatting.None);
-            Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
-        }
         [TestMethod]
         public void TestUpdateAppRequest()
         {
@@ -77,7 +64,7 @@ namespace CloudFoundry.CloudController.V3.Test.Serialization
         {
             string json = @"{
   ""name"": ""my_app"",
-  ""space_guid"": ""7f257247-1447-47cd-8791-5066b6574499"",
+  ""space_guid"": ""3b1839eb-e5ca-470e-a3ab-378745a29225"",
   ""environment_variables"": {
     ""open"": ""source""
   }
@@ -86,9 +73,22 @@ namespace CloudFoundry.CloudController.V3.Test.Serialization
             CreateAppRequest request = new CreateAppRequest();
 
             request.Name = "my_app";
-            request.SpaceGuid = new Guid("7f257247-1447-47cd-8791-5066b6574499");
+            request.SpaceGuid = new Guid("3b1839eb-e5ca-470e-a3ab-378745a29225");
             request.EnvironmentVariables = TestUtil.GetJsonDictonary(@"{""open"":""source""}");
 
+            string result = JsonConvert.SerializeObject(request, Formatting.None);
+            Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
+        }
+        [TestMethod]
+        public void TestAssignDropletAsAppsCurrentDropletRequest()
+        {
+            string json = @"{
+  ""desired_droplet_guid"": ""guid-51b3ec9f-9d92-41ec-ada7-8bbadf3247b4""
+}";
+
+            AssignDropletAsAppsCurrentDropletRequest request = new AssignDropletAsAppsCurrentDropletRequest();
+
+            request.DesiredDropletGuid = "guid-51b3ec9f-9d92-41ec-ada7-8bbadf3247b4";
             string result = JsonConvert.SerializeObject(request, Formatting.None);
             Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
         }

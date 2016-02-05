@@ -66,7 +66,7 @@ namespace CloudFoundry.CloudController.Test.Integration
             app.SpaceGuid = spaceGuid;
             app.Instances = 1;
             app.Memory = 256;
-            app.StackGuid = stackGuid;
+            app.StackGuid = stackGuid.ToString();
 
             try
             {

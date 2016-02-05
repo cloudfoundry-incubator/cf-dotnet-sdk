@@ -111,6 +111,7 @@
     <Compile Include="Deserialization\Test_service_bindings.cs" />
     <Compile Include="Deserialization\Test_service_brokers.cs" />
     <Compile Include="Deserialization\Test_service_instances.cs" />
+    <Compile Include="Deserialization\Test_service_keys.cs" />
     <Compile Include="Deserialization\Test_service_plans.cs" />
     <Compile Include="Deserialization\Test_service_plan_visibilities.cs" />
     <Compile Include="Deserialization\Test_service_usage_events.cs" />
@@ -144,6 +145,7 @@
     <Compile Include="Fake\Test_service_bindings.cs" />
     <Compile Include="Fake\Test_service_brokers.cs" />
     <Compile Include="Fake\Test_service_instances.cs" />
+    <Compile Include="Fake\Test_service_keys.cs" />
     <Compile Include="Fake\Test_service_plans.cs" />
     <Compile Include="Fake\Test_service_plan_visibilities.cs" />
     <Compile Include="Fake\Test_service_usage_events.cs" />
@@ -186,6 +188,7 @@
     <Compile Include="Serialization\Test_service_bindings.cs" />
     <Compile Include="Serialization\Test_service_brokers.cs" />
     <Compile Include="Serialization\Test_service_instances.cs" />
+    <Compile Include="Serialization\Test_service_keys.cs" />
     <Compile Include="Serialization\Test_service_plans.cs" />
     <Compile Include="Serialization\Test_service_plan_visibilities.cs" />
     <Compile Include="Serialization\Test_service_usage_events.cs" />

@@ -24,12 +24,12 @@ using System.Threading.Tasks;
 namespace CloudFoundry.CloudController.V3.Client
 {
     /// <summary>
-    /// Packages Endpoint
+    /// PackagesExperimental Endpoint
     /// </summary>
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public partial class PackagesEndpoint : CloudFoundry.CloudController.V3.Client.Base.AbstractPackagesEndpoint
+    public partial class PackagesExperimentalEndpoint : CloudFoundry.CloudController.V3.Client.Base.AbstractPackagesExperimentalEndpoint
     {
-        internal PackagesEndpoint(CloudFoundryClient client) : base()
+        internal PackagesExperimentalEndpoint(CloudFoundryClient client) : base()
         {
             this.Client = client;
         }
@@ -39,21 +39,21 @@ namespace CloudFoundry.CloudController.V3.Client
 namespace CloudFoundry.CloudController.V3.Client.Base
 {
     /// <summary>
-    /// Base abstract class for Packages Endpoint
+    /// Base abstract class for PackagesExperimental Endpoint
     /// </summary>
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public abstract class AbstractPackagesEndpoint : BaseEndpoint
+    public abstract class AbstractPackagesExperimentalEndpoint : BaseEndpoint
     {
         /// <summary>
         /// Initializes the class
         /// </summary>
-        protected AbstractPackagesEndpoint()
+        protected AbstractPackagesExperimentalEndpoint()
         {
         }
 
         /// <summary>
         /// Get a Package
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/packages__experimental_/get_a_package.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/packages__experimental_/get_a_package.html"</para>
         /// </summary>
         public async Task<GetPackageResponse> GetPackage(Guid? guid)
         {
@@ -74,7 +74,7 @@ namespace CloudFoundry.CloudController.V3.Client.Base
 
         /// <summary>
         /// Create a Package
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/packages__experimental_/create_a_package.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/packages__experimental_/create_a_package.html"</para>
         /// </summary>
         public async Task<CreatePackageResponse> CreatePackage(Guid? guid, CreatePackageRequest value)
         {
@@ -89,59 +89,15 @@ namespace CloudFoundry.CloudController.V3.Client.Base
                 client.Headers.Add(authHeader);
             }
             client.ContentType = "application/x-www-form-urlencoded";
-            client.Content = JsonConvert.SerializeObject(value).ConvertToStream();
+            client.Content = ((string)JsonConvert.SerializeObject(value)).ConvertToStream();
             var expectedReturnStatus = 201;
             var response = await this.SendAsync(client, expectedReturnStatus);
             return Utilities.DeserializeJson<CreatePackageResponse>(await response.ReadContentAsStringAsync());
         }
 
         /// <summary>
-        /// Stage a package
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/packages__experimental_/stage_a_package.html"</para>
-        /// </summary>
-        public async Task<StagePackageResponse> StagePackage(Guid? guid, StagePackageRequest value)
-        {
-            UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
-            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/packages/{0}/droplets", guid);
-            var client = this.GetHttpClient();
-            client.Uri = uriBuilder.Uri;
-            client.Method = HttpMethod.Post;
-            var authHeader = await BuildAuthenticationHeader();
-            if (!string.IsNullOrWhiteSpace(authHeader.Key))
-            {
-                client.Headers.Add(authHeader);
-            }
-            client.ContentType = "application/x-www-form-urlencoded";
-            client.Content = JsonConvert.SerializeObject(value).ConvertToStream();
-            var expectedReturnStatus = 201;
-            var response = await this.SendAsync(client, expectedReturnStatus);
-            return Utilities.DeserializeJson<StagePackageResponse>(await response.ReadContentAsStringAsync());
-        }
-
-        /// <summary>
-        /// Delete a Package
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/packages__experimental_/delete_a_package.html"</para>
-        /// </summary>
-        public async Task DeletePackage(Guid? guid)
-        {
-            UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
-            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/packages/{0}", guid);
-            var client = this.GetHttpClient();
-            client.Uri = uriBuilder.Uri;
-            client.Method = HttpMethod.Delete;
-            var authHeader = await BuildAuthenticationHeader();
-            if (!string.IsNullOrWhiteSpace(authHeader.Key))
-            {
-                client.Headers.Add(authHeader);
-            }
-            client.ContentType = "application/x-www-form-urlencoded";
-            var expectedReturnStatus = 204;
-            var response = await this.SendAsync(client, expectedReturnStatus);
-        }
-
-        /// <summary>
         /// List all Packages
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/packages__experimental_/list_all_packages.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/packages__experimental_/list_all_packages.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllPackagesResponse>> ListAllPackages()
         {
@@ -150,7 +106,7 @@ namespace CloudFoundry.CloudController.V3.Client.Base
 
         /// <summary>
         /// List all Packages
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/packages__experimental_/list_all_packages.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/packages__experimental_/list_all_packages.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllPackagesResponse>> ListAllPackages(RequestOptions options)
         {
@@ -168,6 +124,50 @@ namespace CloudFoundry.CloudController.V3.Client.Base
             var expectedReturnStatus = 200;
             var response = await this.SendAsync(client, expectedReturnStatus);
             return Utilities.DeserializePage<ListAllPackagesResponse>(await response.ReadContentAsStringAsync(), this.Client);
+        }
+
+        /// <summary>
+        /// Stage a package
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/packages__experimental_/stage_a_package.html"</para>
+        /// </summary>
+        public async Task<StagePackageResponse> StagePackage(Guid? guid, StagePackageRequest value)
+        {
+            UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
+            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/packages/{0}/droplets", guid);
+            var client = this.GetHttpClient();
+            client.Uri = uriBuilder.Uri;
+            client.Method = HttpMethod.Post;
+            var authHeader = await BuildAuthenticationHeader();
+            if (!string.IsNullOrWhiteSpace(authHeader.Key))
+            {
+                client.Headers.Add(authHeader);
+            }
+            client.ContentType = "application/x-www-form-urlencoded";
+            client.Content = ((string)JsonConvert.SerializeObject(value)).ConvertToStream();
+            var expectedReturnStatus = 201;
+            var response = await this.SendAsync(client, expectedReturnStatus);
+            return Utilities.DeserializeJson<StagePackageResponse>(await response.ReadContentAsStringAsync());
+        }
+
+        /// <summary>
+        /// Delete a Package
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/packages__experimental_/delete_a_package.html"</para>
+        /// </summary>
+        public async Task DeletePackage(Guid? guid)
+        {
+            UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
+            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/packages/{0}", guid);
+            var client = this.GetHttpClient();
+            client.Uri = uriBuilder.Uri;
+            client.Method = HttpMethod.Delete;
+            var authHeader = await BuildAuthenticationHeader();
+            if (!string.IsNullOrWhiteSpace(authHeader.Key))
+            {
+                client.Headers.Add(authHeader);
+            }
+            client.ContentType = "application/x-www-form-urlencoded";
+            var expectedReturnStatus = 204;
+            var response = await this.SendAsync(client, expectedReturnStatus);
         }
     }
 }

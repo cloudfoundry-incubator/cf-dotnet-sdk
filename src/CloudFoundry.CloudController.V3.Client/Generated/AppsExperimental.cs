@@ -24,12 +24,12 @@ using System.Threading.Tasks;
 namespace CloudFoundry.CloudController.V3.Client
 {
     /// <summary>
-    /// Apps Endpoint
+    /// AppsExperimental Endpoint
     /// </summary>
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public partial class AppsEndpoint : CloudFoundry.CloudController.V3.Client.Base.AbstractAppsEndpoint
+    public partial class AppsExperimentalEndpoint : CloudFoundry.CloudController.V3.Client.Base.AbstractAppsExperimentalEndpoint
     {
-        internal AppsEndpoint(CloudFoundryClient client) : base()
+        internal AppsExperimentalEndpoint(CloudFoundryClient client) : base()
         {
             this.Client = client;
         }
@@ -39,42 +39,44 @@ namespace CloudFoundry.CloudController.V3.Client
 namespace CloudFoundry.CloudController.V3.Client.Base
 {
     /// <summary>
-    /// Base abstract class for Apps Endpoint
+    /// Base abstract class for AppsExperimental Endpoint
     /// </summary>
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public abstract class AbstractAppsEndpoint : BaseEndpoint
+    public abstract class AbstractAppsExperimentalEndpoint : BaseEndpoint
     {
         /// <summary>
         /// Initializes the class
         /// </summary>
-        protected AbstractAppsEndpoint()
+        protected AbstractAppsExperimentalEndpoint()
         {
         }
 
         /// <summary>
-        /// Delete an App
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/apps__experimental_/delete_an_app.html"</para>
+        /// Updating an App
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/apps__experimental_/updating_an_app.html"</para>
         /// </summary>
-        public async Task DeleteApp(Guid? guid)
+        public async Task<UpdateAppResponse> UpdateApp(Guid? guid, UpdateAppRequest value)
         {
             UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
             uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/apps/{0}", guid);
             var client = this.GetHttpClient();
             client.Uri = uriBuilder.Uri;
-            client.Method = HttpMethod.Delete;
+            client.Method = new HttpMethod("PATCH");
             var authHeader = await BuildAuthenticationHeader();
             if (!string.IsNullOrWhiteSpace(authHeader.Key))
             {
                 client.Headers.Add(authHeader);
             }
             client.ContentType = "application/x-www-form-urlencoded";
-            var expectedReturnStatus = 204;
+            client.Content = ((string)JsonConvert.SerializeObject(value)).ConvertToStream();
+            var expectedReturnStatus = 200;
             var response = await this.SendAsync(client, expectedReturnStatus);
+            return Utilities.DeserializeJson<UpdateAppResponse>(await response.ReadContentAsStringAsync());
         }
 
         /// <summary>
         /// List associated processes
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/apps__experimental_/list_associated_processes.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/apps__experimental_/list_associated_processes.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAssociatedProcessesResponse>> ListAssociatedProcesses(Guid? guid)
         {
@@ -83,7 +85,7 @@ namespace CloudFoundry.CloudController.V3.Client.Base
 
         /// <summary>
         /// List associated processes
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/apps__experimental_/list_associated_processes.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/apps__experimental_/list_associated_processes.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAssociatedProcessesResponse>> ListAssociatedProcesses(Guid? guid, RequestOptions options)
         {
@@ -104,34 +106,13 @@ namespace CloudFoundry.CloudController.V3.Client.Base
         }
 
         /// <summary>
-        /// getting the env of an app
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/apps__experimental_/getting_the_env_of_an_app.html"</para>
+        /// Scaling a Process from its App
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/apps__experimental_/scaling_a_process_from_its_app.html"</para>
         /// </summary>
-        public async Task<GettingEnvOfAppResponse> GettingEnvOfApp(Guid? guid)
+        public async Task<ScalingProcessFromItsAppResponse> ScalingProcessFromItsApp(Guid? guid, dynamic type, ScalingProcessFromItsAppRequest value)
         {
             UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
-            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/apps/{0}/env", guid);
-            var client = this.GetHttpClient();
-            client.Uri = uriBuilder.Uri;
-            client.Method = HttpMethod.Get;
-            var authHeader = await BuildAuthenticationHeader();
-            if (!string.IsNullOrWhiteSpace(authHeader.Key))
-            {
-                client.Headers.Add(authHeader);
-            }
-            var expectedReturnStatus = 200;
-            var response = await this.SendAsync(client, expectedReturnStatus);
-            return Utilities.DeserializeJson<GettingEnvOfAppResponse>(await response.ReadContentAsStringAsync());
-        }
-
-        /// <summary>
-        /// Starting an App
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/apps__experimental_/starting_an_app.html"</para>
-        /// </summary>
-        public async Task<StartingAppResponse> StartingApp(Guid? guid, StartingAppRequest value)
-        {
-            UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
-            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/apps/{0}/start", guid);
+            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/apps/{0}/processes/{1}/scale", guid, type);
             var client = this.GetHttpClient();
             client.Uri = uriBuilder.Uri;
             client.Method = HttpMethod.Put;
@@ -141,36 +122,15 @@ namespace CloudFoundry.CloudController.V3.Client.Base
                 client.Headers.Add(authHeader);
             }
             client.ContentType = "application/x-www-form-urlencoded";
-            client.Content = JsonConvert.SerializeObject(value).ConvertToStream();
+            client.Content = ((string)JsonConvert.SerializeObject(value)).ConvertToStream();
             var expectedReturnStatus = 200;
             var response = await this.SendAsync(client, expectedReturnStatus);
-            return Utilities.DeserializeJson<StartingAppResponse>(await response.ReadContentAsStringAsync());
-        }
-
-        /// <summary>
-        /// Get an App
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/apps__experimental_/get_an_app.html"</para>
-        /// </summary>
-        public async Task<GetAppResponse> GetApp(Guid? guid)
-        {
-            UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
-            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/apps/{0}", guid);
-            var client = this.GetHttpClient();
-            client.Uri = uriBuilder.Uri;
-            client.Method = HttpMethod.Get;
-            var authHeader = await BuildAuthenticationHeader();
-            if (!string.IsNullOrWhiteSpace(authHeader.Key))
-            {
-                client.Headers.Add(authHeader);
-            }
-            var expectedReturnStatus = 200;
-            var response = await this.SendAsync(client, expectedReturnStatus);
-            return Utilities.DeserializeJson<GetAppResponse>(await response.ReadContentAsStringAsync());
+            return Utilities.DeserializeJson<ScalingProcessFromItsAppResponse>(await response.ReadContentAsStringAsync());
         }
 
         /// <summary>
         /// List all Apps
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/apps__experimental_/list_all_apps.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/apps__experimental_/list_all_apps.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllAppsResponse>> ListAllApps()
         {
@@ -179,7 +139,7 @@ namespace CloudFoundry.CloudController.V3.Client.Base
 
         /// <summary>
         /// List all Apps
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/apps__experimental_/list_all_apps.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/apps__experimental_/list_all_apps.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllAppsResponse>> ListAllApps(RequestOptions options)
         {
@@ -200,8 +160,73 @@ namespace CloudFoundry.CloudController.V3.Client.Base
         }
 
         /// <summary>
+        /// Get a Process from an App
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/apps__experimental_/get_a_process_from_an_app.html"</para>
+        /// </summary>
+        public async Task<GetProcessFromAppResponse> GetProcessFromApp(Guid? guid, dynamic type)
+        {
+            UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
+            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/apps/{0}/processes/{1}", guid, type);
+            var client = this.GetHttpClient();
+            client.Uri = uriBuilder.Uri;
+            client.Method = HttpMethod.Get;
+            var authHeader = await BuildAuthenticationHeader();
+            if (!string.IsNullOrWhiteSpace(authHeader.Key))
+            {
+                client.Headers.Add(authHeader);
+            }
+            var expectedReturnStatus = 200;
+            var response = await this.SendAsync(client, expectedReturnStatus);
+            return Utilities.DeserializeJson<GetProcessFromAppResponse>(await response.ReadContentAsStringAsync());
+        }
+
+        /// <summary>
+        /// Get an App
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/apps__experimental_/get_an_app.html"</para>
+        /// </summary>
+        public async Task<GetAppResponse> GetApp(Guid? guid)
+        {
+            UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
+            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/apps/{0}", guid);
+            var client = this.GetHttpClient();
+            client.Uri = uriBuilder.Uri;
+            client.Method = HttpMethod.Get;
+            var authHeader = await BuildAuthenticationHeader();
+            if (!string.IsNullOrWhiteSpace(authHeader.Key))
+            {
+                client.Headers.Add(authHeader);
+            }
+            var expectedReturnStatus = 200;
+            var response = await this.SendAsync(client, expectedReturnStatus);
+            return Utilities.DeserializeJson<GetAppResponse>(await response.ReadContentAsStringAsync());
+        }
+
+        /// <summary>
+        /// Create an App
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/apps__experimental_/create_an_app.html"</para>
+        /// </summary>
+        public async Task<CreateAppResponse> CreateApp(CreateAppRequest value)
+        {
+            UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
+            uriBuilder.Path = "/v3/apps";
+            var client = this.GetHttpClient();
+            client.Uri = uriBuilder.Uri;
+            client.Method = HttpMethod.Post;
+            var authHeader = await BuildAuthenticationHeader();
+            if (!string.IsNullOrWhiteSpace(authHeader.Key))
+            {
+                client.Headers.Add(authHeader);
+            }
+            client.ContentType = "application/x-www-form-urlencoded";
+            client.Content = ((string)JsonConvert.SerializeObject(value)).ConvertToStream();
+            var expectedReturnStatus = 201;
+            var response = await this.SendAsync(client, expectedReturnStatus);
+            return Utilities.DeserializeJson<CreateAppResponse>(await response.ReadContentAsStringAsync());
+        }
+
+        /// <summary>
         /// List associated packages
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/apps__experimental_/list_associated_packages.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/apps__experimental_/list_associated_packages.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAssociatedPackagesResponse>> ListAssociatedPackages(Guid? guid)
         {
@@ -210,7 +235,7 @@ namespace CloudFoundry.CloudController.V3.Client.Base
 
         /// <summary>
         /// List associated packages
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/apps__experimental_/list_associated_packages.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/apps__experimental_/list_associated_packages.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAssociatedPackagesResponse>> ListAssociatedPackages(Guid? guid, RequestOptions options)
         {
@@ -231,8 +256,31 @@ namespace CloudFoundry.CloudController.V3.Client.Base
         }
 
         /// <summary>
+        /// Starting an App
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/apps__experimental_/starting_an_app.html"</para>
+        /// </summary>
+        public async Task<StartingAppResponse> StartingApp(Guid? guid, StartingAppRequest value)
+        {
+            UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
+            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/apps/{0}/start", guid);
+            var client = this.GetHttpClient();
+            client.Uri = uriBuilder.Uri;
+            client.Method = HttpMethod.Put;
+            var authHeader = await BuildAuthenticationHeader();
+            if (!string.IsNullOrWhiteSpace(authHeader.Key))
+            {
+                client.Headers.Add(authHeader);
+            }
+            client.ContentType = "application/x-www-form-urlencoded";
+            client.Content = ((string)JsonConvert.SerializeObject(value)).ConvertToStream();
+            var expectedReturnStatus = 200;
+            var response = await this.SendAsync(client, expectedReturnStatus);
+            return Utilities.DeserializeJson<StartingAppResponse>(await response.ReadContentAsStringAsync());
+        }
+
+        /// <summary>
         /// Assigning a droplet as a an Apps current droplet
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/apps__experimental_/assigning_a_droplet_as_a_an_apps_current_droplet.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/apps__experimental_/assigning_a_droplet_as_a_an_apps_current_droplet.html"</para>
         /// </summary>
         public async Task<AssignDropletAsAppsCurrentDropletResponse> AssignDropletAsAppsCurrentDroplet(Guid? guid, AssignDropletAsAppsCurrentDropletRequest value)
         {
@@ -247,38 +295,36 @@ namespace CloudFoundry.CloudController.V3.Client.Base
                 client.Headers.Add(authHeader);
             }
             client.ContentType = "application/x-www-form-urlencoded";
-            client.Content = JsonConvert.SerializeObject(value).ConvertToStream();
+            client.Content = ((string)JsonConvert.SerializeObject(value)).ConvertToStream();
             var expectedReturnStatus = 200;
             var response = await this.SendAsync(client, expectedReturnStatus);
             return Utilities.DeserializeJson<AssignDropletAsAppsCurrentDropletResponse>(await response.ReadContentAsStringAsync());
         }
 
         /// <summary>
-        /// Updating an App
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/apps__experimental_/updating_an_app.html"</para>
+        /// getting the env of an app
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/apps__experimental_/getting_the_env_of_an_app.html"</para>
         /// </summary>
-        public async Task<UpdateAppResponse> UpdateApp(Guid? guid, UpdateAppRequest value)
+        public async Task<GettingEnvOfAppResponse> GettingEnvOfApp(Guid? guid)
         {
             UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
-            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/apps/{0}", guid);
+            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/apps/{0}/env", guid);
             var client = this.GetHttpClient();
             client.Uri = uriBuilder.Uri;
-            client.Method = new HttpMethod("PATCH");
+            client.Method = HttpMethod.Get;
             var authHeader = await BuildAuthenticationHeader();
             if (!string.IsNullOrWhiteSpace(authHeader.Key))
             {
                 client.Headers.Add(authHeader);
             }
-            client.ContentType = "application/x-www-form-urlencoded";
-            client.Content = JsonConvert.SerializeObject(value).ConvertToStream();
             var expectedReturnStatus = 200;
             var response = await this.SendAsync(client, expectedReturnStatus);
-            return Utilities.DeserializeJson<UpdateAppResponse>(await response.ReadContentAsStringAsync());
+            return Utilities.DeserializeJson<GettingEnvOfAppResponse>(await response.ReadContentAsStringAsync());
         }
 
         /// <summary>
         /// Stopping an App
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/apps__experimental_/stopping_an_app.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/apps__experimental_/stopping_an_app.html"</para>
         /// </summary>
         public async Task<StoppingAppResponse> StoppingApp(Guid? guid, StoppingAppRequest value)
         {
@@ -293,77 +339,31 @@ namespace CloudFoundry.CloudController.V3.Client.Base
                 client.Headers.Add(authHeader);
             }
             client.ContentType = "application/x-www-form-urlencoded";
-            client.Content = JsonConvert.SerializeObject(value).ConvertToStream();
+            client.Content = ((string)JsonConvert.SerializeObject(value)).ConvertToStream();
             var expectedReturnStatus = 200;
             var response = await this.SendAsync(client, expectedReturnStatus);
             return Utilities.DeserializeJson<StoppingAppResponse>(await response.ReadContentAsStringAsync());
         }
 
         /// <summary>
-        /// Get a Process from an App
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/apps__experimental_/get_a_process_from_an_app.html"</para>
+        /// Delete an App
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/apps__experimental_/delete_an_app.html"</para>
         /// </summary>
-        public async Task<GetProcessFromAppResponse> GetProcessFromApp(Guid? guid, dynamic type)
+        public async Task DeleteApp(Guid? guid)
         {
             UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
-            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/apps/{0}/processes/{1}", guid, type);
+            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/apps/{0}", guid);
             var client = this.GetHttpClient();
             client.Uri = uriBuilder.Uri;
-            client.Method = HttpMethod.Get;
-            var authHeader = await BuildAuthenticationHeader();
-            if (!string.IsNullOrWhiteSpace(authHeader.Key))
-            {
-                client.Headers.Add(authHeader);
-            }
-            var expectedReturnStatus = 200;
-            var response = await this.SendAsync(client, expectedReturnStatus);
-            return Utilities.DeserializeJson<GetProcessFromAppResponse>(await response.ReadContentAsStringAsync());
-        }
-
-        /// <summary>
-        /// Scaling a Process from its App
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/apps__experimental_/scaling_a_process_from_its_app.html"</para>
-        /// </summary>
-        public async Task<ScalingProcessFromItsAppResponse> ScalingProcessFromItsApp(Guid? guid, dynamic type, ScalingProcessFromItsAppRequest value)
-        {
-            UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
-            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/apps/{0}/processes/{1}/scale", guid, type);
-            var client = this.GetHttpClient();
-            client.Uri = uriBuilder.Uri;
-            client.Method = HttpMethod.Put;
+            client.Method = HttpMethod.Delete;
             var authHeader = await BuildAuthenticationHeader();
             if (!string.IsNullOrWhiteSpace(authHeader.Key))
             {
                 client.Headers.Add(authHeader);
             }
             client.ContentType = "application/x-www-form-urlencoded";
-            client.Content = JsonConvert.SerializeObject(value).ConvertToStream();
-            var expectedReturnStatus = 200;
+            var expectedReturnStatus = 204;
             var response = await this.SendAsync(client, expectedReturnStatus);
-            return Utilities.DeserializeJson<ScalingProcessFromItsAppResponse>(await response.ReadContentAsStringAsync());
-        }
-
-        /// <summary>
-        /// Create an App
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/apps__experimental_/create_an_app.html"</para>
-        /// </summary>
-        public async Task<CreateAppResponse> CreateApp(CreateAppRequest value)
-        {
-            UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
-            uriBuilder.Path = "/v3/apps";
-            var client = this.GetHttpClient();
-            client.Uri = uriBuilder.Uri;
-            client.Method = HttpMethod.Post;
-            var authHeader = await BuildAuthenticationHeader();
-            if (!string.IsNullOrWhiteSpace(authHeader.Key))
-            {
-                client.Headers.Add(authHeader);
-            }
-            client.ContentType = "application/x-www-form-urlencoded";
-            client.Content = JsonConvert.SerializeObject(value).ConvertToStream();
-            var expectedReturnStatus = 201;
-            var response = await this.SendAsync(client, expectedReturnStatus);
-            return Utilities.DeserializeJson<CreateAppResponse>(await response.ReadContentAsStringAsync());
         }
     }
 }

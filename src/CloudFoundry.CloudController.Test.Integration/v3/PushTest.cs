@@ -60,13 +60,13 @@ namespace CloudFoundry.CloudController.Test.Integration.V3
                 throw new Exception("No spaces found");
             }
 
-            CCV3.PagedResponseCollection<CCV3.Data.ListAllAppsResponse> apps = v3client.Apps.ListAllApps().Result;
+            CCV3.PagedResponseCollection<CCV3.Data.ListAllAppsResponse> apps = v3client.AppsExperimental.ListAllApps().Result;
 
             foreach (CCV3.Data.ListAllAppsResponse app in apps)
             {
                 if (app.Name.StartsWith("simplePushTest"))
                 {
-                    v3client.Apps.DeleteApp(new Guid(app.Guid)).Wait();
+                    v3client.AppsExperimental.DeleteApp(new Guid(app.Guid)).Wait();
                     break;
                 }
             }
@@ -88,17 +88,17 @@ namespace CloudFoundry.CloudController.Test.Integration.V3
         {
             apprequest.Name = "simplePushTest" + Guid.NewGuid().ToString("N");
 
-            CCV3.Data.CreateAppResponse app = v3client.Apps.CreateApp(apprequest).Result;
+            CCV3.Data.CreateAppResponse app = v3client.AppsExperimental.CreateApp(apprequest).Result;
 
             Guid appGuid = new Guid(app.Guid.ToString());
 
             try
             {
-                v3client.Apps.Push(appGuid, TestUtil.NodeTestApp, "cflinuxfs2", null, true).Wait();
+                v3client.AppsExperimental.Push(appGuid, TestUtil.NodeTestApp, "cflinuxfs2", null, true).Wait();
             }
             finally
             {
-                v3client.Apps.DeleteApp(appGuid).Wait();
+                v3client.AppsExperimental.DeleteApp(appGuid).Wait();
             }
         }
     }

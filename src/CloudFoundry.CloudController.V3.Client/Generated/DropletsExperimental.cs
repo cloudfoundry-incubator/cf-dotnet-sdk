@@ -24,12 +24,12 @@ using System.Threading.Tasks;
 namespace CloudFoundry.CloudController.V3.Client
 {
     /// <summary>
-    /// Droplets Endpoint
+    /// DropletsExperimental Endpoint
     /// </summary>
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public partial class DropletsEndpoint : CloudFoundry.CloudController.V3.Client.Base.AbstractDropletsEndpoint
+    public partial class DropletsExperimentalEndpoint : CloudFoundry.CloudController.V3.Client.Base.AbstractDropletsExperimentalEndpoint
     {
-        internal DropletsEndpoint(CloudFoundryClient client) : base()
+        internal DropletsExperimentalEndpoint(CloudFoundryClient client) : base()
         {
             this.Client = client;
         }
@@ -39,21 +39,42 @@ namespace CloudFoundry.CloudController.V3.Client
 namespace CloudFoundry.CloudController.V3.Client.Base
 {
     /// <summary>
-    /// Base abstract class for Droplets Endpoint
+    /// Base abstract class for DropletsExperimental Endpoint
     /// </summary>
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
-    public abstract class AbstractDropletsEndpoint : BaseEndpoint
+    public abstract class AbstractDropletsExperimentalEndpoint : BaseEndpoint
     {
         /// <summary>
         /// Initializes the class
         /// </summary>
-        protected AbstractDropletsEndpoint()
+        protected AbstractDropletsExperimentalEndpoint()
         {
         }
 
         /// <summary>
+        /// Get a Droplet
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/droplets__experimental_/get_a_droplet.html"</para>
+        /// </summary>
+        public async Task<GetDropletResponse> GetDroplet(Guid? guid)
+        {
+            UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
+            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/droplets/{0}", guid);
+            var client = this.GetHttpClient();
+            client.Uri = uriBuilder.Uri;
+            client.Method = HttpMethod.Get;
+            var authHeader = await BuildAuthenticationHeader();
+            if (!string.IsNullOrWhiteSpace(authHeader.Key))
+            {
+                client.Headers.Add(authHeader);
+            }
+            var expectedReturnStatus = 200;
+            var response = await this.SendAsync(client, expectedReturnStatus);
+            return Utilities.DeserializeJson<GetDropletResponse>(await response.ReadContentAsStringAsync());
+        }
+
+        /// <summary>
         /// List all Droplets
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/droplets__experimental_/list_all_droplets.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/droplets__experimental_/list_all_droplets.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllDropletsResponse>> ListAllDroplets()
         {
@@ -62,7 +83,7 @@ namespace CloudFoundry.CloudController.V3.Client.Base
 
         /// <summary>
         /// List all Droplets
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/droplets__experimental_/list_all_droplets.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/droplets__experimental_/list_all_droplets.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllDropletsResponse>> ListAllDroplets(RequestOptions options)
         {
@@ -84,7 +105,7 @@ namespace CloudFoundry.CloudController.V3.Client.Base
 
         /// <summary>
         /// Delete a Droplet
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/droplets__experimental_/delete_a_droplet.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/210/droplets__experimental_/delete_a_droplet.html"</para>
         /// </summary>
         public async Task DeleteDroplet(Guid? guid)
         {
@@ -101,27 +122,6 @@ namespace CloudFoundry.CloudController.V3.Client.Base
             client.ContentType = "application/x-www-form-urlencoded";
             var expectedReturnStatus = 204;
             var response = await this.SendAsync(client, expectedReturnStatus);
-        }
-
-        /// <summary>
-        /// Get a Droplet
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/195/droplets__experimental_/get_a_droplet.html"</para>
-        /// </summary>
-        public async Task<GetDropletResponse> GetDroplet(Guid? guid)
-        {
-            UriBuilder uriBuilder = new UriBuilder(this.Client.CloudTarget);
-            uriBuilder.Path = string.Format(CultureInfo.InvariantCulture, "/v3/droplets/{0}", guid);
-            var client = this.GetHttpClient();
-            client.Uri = uriBuilder.Uri;
-            client.Method = HttpMethod.Get;
-            var authHeader = await BuildAuthenticationHeader();
-            if (!string.IsNullOrWhiteSpace(authHeader.Key))
-            {
-                client.Headers.Add(authHeader);
-            }
-            var expectedReturnStatus = 200;
-            var response = await this.SendAsync(client, expectedReturnStatus);
-            return Utilities.DeserializeJson<GetDropletResponse>(await response.ReadContentAsStringAsync());
         }
     }
 }

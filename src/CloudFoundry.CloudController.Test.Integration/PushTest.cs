@@ -81,7 +81,7 @@ namespace CloudFoundry.CloudController.Test.Integration
             apprequest.Memory = 512;
             apprequest.Instances = 1;
             apprequest.SpaceGuid = spaceGuid;
-            apprequest.StackGuid = winStack;
+            apprequest.StackGuid = winStack.ToString();
 
             client.Apps.PushProgress += Apps_PushProgress;
         }

@@ -28,7 +28,7 @@ namespace CloudFoundry.CloudController.V2.Test.Deserialization
         [TestMethod]
         public void TestGetInfoResponse()
         {
-            string json = @"{""name"":""vcap"",""build"":""2222"",""support"":""http://support.cloudfoundry.com"",""version"":2,""description"":""Cloud Foundry sponsored by Pivotal"",""authorization_endpoint"":""http://localhost:8080/uaa"",""token_endpoint"":""http://localhost:8080/uaa"",""api_version"":""2.22.0"",""logging_endpoint"":""ws://loggregator.vcap.me:80""}";
+            string json = @"{""name"":""vcap"",""build"":""2222"",""support"":""http://support.cloudfoundry.com"",""version"":2,""description"":""Cloud Foundry sponsored by Pivotal"",""authorization_endpoint"":""http://localhost:8080/uaa"",""token_endpoint"":""http://localhost:8080/uaa"",""min_cli_version"":null,""min_recommended_cli_version"":null,""api_version"":""2.27.0"",""app_ssh_endpoint"":""ssh.system.domain.example.com:2222"",""app_ssh_host_key_fingerprint"":""47:0d:d1:c8:c3:3d:0a:36:d1:49:2f:f2:90:27:31:d0"",""logging_endpoint"":""ws://loggregator.vcap.me:80""}";
 
             GetInfoResponse obj = Utilities.DeserializeJson<GetInfoResponse>(json);
 
@@ -39,7 +39,11 @@ namespace CloudFoundry.CloudController.V2.Test.Deserialization
             Assert.AreEqual("Cloud Foundry sponsored by Pivotal", TestUtil.ToTestableString(obj.Description), true);
             Assert.AreEqual("http://localhost:8080/uaa", TestUtil.ToTestableString(obj.AuthorizationEndpoint), true);
             Assert.AreEqual("http://localhost:8080/uaa", TestUtil.ToTestableString(obj.TokenEndpoint), true);
-            Assert.AreEqual("2.22.0", TestUtil.ToTestableString(obj.ApiVersion), true);
+            Assert.AreEqual("", TestUtil.ToTestableString(obj.MinCliVersion), true);
+            Assert.AreEqual("", TestUtil.ToTestableString(obj.MinRecommendedCliVersion), true);
+            Assert.AreEqual("2.27.0", TestUtil.ToTestableString(obj.ApiVersion), true);
+            Assert.AreEqual("ssh.system.domain.example.com:2222", TestUtil.ToTestableString(obj.AppSshEndpoint), true);
+            Assert.AreEqual("47:0d:d1:c8:c3:3d:0a:36:d1:49:2f:f2:90:27:31:d0", TestUtil.ToTestableString(obj.AppSshHostKeyFingerprint), true);
             Assert.AreEqual("ws://loggregator.vcap.me:80", TestUtil.ToTestableString(obj.LoggingEndpoint), true);
         }
     }
