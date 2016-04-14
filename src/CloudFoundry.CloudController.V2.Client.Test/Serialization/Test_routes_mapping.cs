@@ -31,16 +31,29 @@ namespace CloudFoundry.CloudController.V2.Test.Serialization
         public void TestMappingAppAndRouteRequest()
         {
             string json = @"{
-  ""app_guid"": ""01a5e871-0432-4501-8ee4-ae3bfa1c3ecd"",
-  ""route_guid"": ""01a5e871-0432-4501-8ee4-ae3bfa1c3ecd"",
+  ""app_guid"": ""c89e1b8a-cddc-480e-b8c7-eaa73f0cc357"",
+  ""route_guid"": ""c89e1b8a-cddc-480e-b8c7-eaa73f0cc357"",
   ""app_port"": 8888
 }";
 
             MappingAppAndRouteRequest request = new MappingAppAndRouteRequest();
 
-            request.AppGuid = new Guid("01a5e871-0432-4501-8ee4-ae3bfa1c3ecd");
-            request.RouteGuid = new Guid("01a5e871-0432-4501-8ee4-ae3bfa1c3ecd");
+            request.AppGuid = new Guid("c89e1b8a-cddc-480e-b8c7-eaa73f0cc357");
+            request.RouteGuid = new Guid("c89e1b8a-cddc-480e-b8c7-eaa73f0cc357");
             request.AppPort = 8888;
+            string result = JsonConvert.SerializeObject(request, Formatting.None);
+            Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
+        }
+        [TestMethod]
+        public void TestUpdateRouteMappingRequest()
+        {
+            string json = @"{
+  ""app_port"": 8889
+}";
+
+            UpdateRouteMappingRequest request = new UpdateRouteMappingRequest();
+
+            request.AppPort = 8889;
             string result = JsonConvert.SerializeObject(request, Formatting.None);
             Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
         }

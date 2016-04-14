@@ -31,8 +31,8 @@ namespace CloudFoundry.CloudController.V2.Test.Serialization
         public void TestCreateServiceBindingRequest()
         {
             string json = @"{
-  ""service_instance_guid"": ""94e8b60d-7d2a-4c39-9278-f707fadf7cae"",
-  ""app_guid"": ""94e8b60d-7d2a-4c39-9278-f707fadf7cae"",
+  ""service_instance_guid"": ""30274e78-bae8-4a1a-bdb0-20cdb7301a39"",
+  ""app_guid"": ""30274e78-bae8-4a1a-bdb0-20cdb7301a39"",
   ""parameters"": {
     ""the_service_broker"": ""wants this object""
   }
@@ -40,8 +40,8 @@ namespace CloudFoundry.CloudController.V2.Test.Serialization
 
             CreateServiceBindingRequest request = new CreateServiceBindingRequest();
 
-            request.ServiceInstanceGuid = new Guid("94e8b60d-7d2a-4c39-9278-f707fadf7cae");
-            request.AppGuid = new Guid("94e8b60d-7d2a-4c39-9278-f707fadf7cae");
+            request.ServiceInstanceGuid = new Guid("30274e78-bae8-4a1a-bdb0-20cdb7301a39");
+            request.AppGuid = new Guid("30274e78-bae8-4a1a-bdb0-20cdb7301a39");
             request.Parameters = TestUtil.GetJsonDictonary(@"{""the_service_broker"":""wants this object""}");
 
             string result = JsonConvert.SerializeObject(request, Formatting.None);

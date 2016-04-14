@@ -28,19 +28,6 @@ namespace CloudFoundry.CloudController.V2.Test.Serialization
     {
 
         [TestMethod]
-        public void TestUpdateSpaceQuotaDefinitionRequest()
-        {
-            string json = @"{
-  ""name"": ""new_name""
-}";
-
-            UpdateSpaceQuotaDefinitionRequest request = new UpdateSpaceQuotaDefinitionRequest();
-
-            request.Name = "new_name";
-            string result = JsonConvert.SerializeObject(request, Formatting.None);
-            Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
-        }
-        [TestMethod]
         public void TestCreateSpaceQuotaDefinitionRequest()
         {
             string json = @"{
@@ -49,7 +36,7 @@ namespace CloudFoundry.CloudController.V2.Test.Serialization
   ""total_services"": -1,
   ""total_routes"": -1,
   ""memory_limit"": 5120,
-  ""organization_guid"": ""a8b79c78-b097-4699-a93b-7b1f035a87cc""
+  ""organization_guid"": ""943d41cd-7fdb-4778-bb2e-ffc89eea3b5a""
 }";
 
             CreateSpaceQuotaDefinitionRequest request = new CreateSpaceQuotaDefinitionRequest();
@@ -59,7 +46,20 @@ namespace CloudFoundry.CloudController.V2.Test.Serialization
             request.TotalServices = -1;
             request.TotalRoutes = -1;
             request.MemoryLimit = 5120;
-            request.OrganizationGuid = new Guid("a8b79c78-b097-4699-a93b-7b1f035a87cc");
+            request.OrganizationGuid = new Guid("943d41cd-7fdb-4778-bb2e-ffc89eea3b5a");
+            string result = JsonConvert.SerializeObject(request, Formatting.None);
+            Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
+        }
+        [TestMethod]
+        public void TestUpdateSpaceQuotaDefinitionRequest()
+        {
+            string json = @"{
+  ""name"": ""new_name""
+}";
+
+            UpdateSpaceQuotaDefinitionRequest request = new UpdateSpaceQuotaDefinitionRequest();
+
+            request.Name = "new_name";
             string result = JsonConvert.SerializeObject(request, Formatting.None);
             Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
         }

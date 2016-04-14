@@ -47,9 +47,9 @@ namespace CloudFoundry.CloudController.V2.Test.Serialization
         public void TestCreateServiceInstanceRequest()
         {
             string json = @"{
-  ""space_guid"": ""59cf5bcf-45bd-48f8-967e-777910e703f3"",
+  ""space_guid"": ""e0c4cb73-c6e8-4d99-a953-c95782c78d5d"",
   ""name"": ""my-service-instance"",
-  ""service_plan_guid"": ""59cf5bcf-45bd-48f8-967e-777910e703f3"",
+  ""service_plan_guid"": ""e0c4cb73-c6e8-4d99-a953-c95782c78d5d"",
   ""parameters"": {
     ""the_service_broker"": ""wants this object""
   },
@@ -61,9 +61,9 @@ namespace CloudFoundry.CloudController.V2.Test.Serialization
 
             CreateServiceInstanceRequest request = new CreateServiceInstanceRequest();
 
-            request.SpaceGuid = new Guid("59cf5bcf-45bd-48f8-967e-777910e703f3");
+            request.SpaceGuid = new Guid("e0c4cb73-c6e8-4d99-a953-c95782c78d5d");
             request.Name = "my-service-instance";
-            request.ServicePlanGuid = new Guid("59cf5bcf-45bd-48f8-967e-777910e703f3");
+            request.ServicePlanGuid = new Guid("e0c4cb73-c6e8-4d99-a953-c95782c78d5d");
             request.Parameters = TestUtil.GetJsonDictonary(@"{""the_service_broker"":""wants this object""}");
 
             request.Tags = Array.ConvertAll(TestUtil.GetJsonArray(@"[""accounting"",""mongodb""]"), (p => p.ToString()));
@@ -74,11 +74,11 @@ namespace CloudFoundry.CloudController.V2.Test.Serialization
         [TestMethod]
         public void TestUpdateServiceInstanceRequest()
         {
-            string json = @"{""service_plan_guid"":""40151faf-f998-4067-8b06-0b8908ac5f14"",""parameters"":{""the_service_broker"":""wants this object""}}";
+            string json = @"{""service_plan_guid"":""63209dce-0951-435e-a990-8771b51b3045"",""parameters"":{""the_service_broker"":""wants this object""}}";
 
             UpdateServiceInstanceRequest request = new UpdateServiceInstanceRequest();
 
-            request.ServicePlanGuid = new Guid("40151faf-f998-4067-8b06-0b8908ac5f14");
+            request.ServicePlanGuid = new Guid("63209dce-0951-435e-a990-8771b51b3045");
             request.Parameters = TestUtil.GetJsonDictonary(@"{""the_service_broker"":""wants this object""}");
 
             string result = JsonConvert.SerializeObject(request, Formatting.None);

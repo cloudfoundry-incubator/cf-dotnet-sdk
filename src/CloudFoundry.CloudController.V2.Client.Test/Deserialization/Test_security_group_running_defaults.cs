@@ -36,13 +36,13 @@ namespace CloudFoundry.CloudController.V2.Test.Deserialization
   ""resources"": [
     {
       ""metadata"": {
-        ""guid"": ""948641b7-61eb-42fe-8a8b-49fc95588d2a"",
-        ""url"": ""/v2/config/running_security_groups/9cb2e2a2-9de6-45a8-a56c-be7a58898f80"",
-        ""created_at"": ""2016-03-30T10:15:30Z"",
+        ""guid"": ""c7b7e9b4-7514-47ae-b64f-7bec43ef5e4b"",
+        ""url"": ""/v2/config/running_security_groups/17b05e24-cd54-4445-a9bb-53e07264267b"",
+        ""created_at"": ""2016-04-11T13:32:38Z"",
         ""updated_at"": null
       },
       ""entity"": {
-        ""name"": ""name-1866"",
+        ""name"": ""name-263"",
         ""rules"": [
           {
             ""protocol"": ""udp"",
@@ -63,11 +63,11 @@ namespace CloudFoundry.CloudController.V2.Test.Deserialization
             Assert.AreEqual("1", TestUtil.ToTestableString(page.Properties.TotalPages), true);
             Assert.AreEqual("", TestUtil.ToTestableString(page.Properties.PreviousUrl), true);
             Assert.AreEqual("", TestUtil.ToTestableString(page.Properties.NextUrl), true);
-            Assert.AreEqual("948641b7-61eb-42fe-8a8b-49fc95588d2a", TestUtil.ToTestableString(page[0].EntityMetadata.Guid), true);
-            Assert.AreEqual("/v2/config/running_security_groups/9cb2e2a2-9de6-45a8-a56c-be7a58898f80", TestUtil.ToTestableString(page[0].EntityMetadata.Url), true);
-            Assert.AreEqual("2016-03-30T10:15:30Z", TestUtil.ToTestableString(page[0].EntityMetadata.CreatedAt), true);
+            Assert.AreEqual("c7b7e9b4-7514-47ae-b64f-7bec43ef5e4b", TestUtil.ToTestableString(page[0].EntityMetadata.Guid), true);
+            Assert.AreEqual("/v2/config/running_security_groups/17b05e24-cd54-4445-a9bb-53e07264267b", TestUtil.ToTestableString(page[0].EntityMetadata.Url), true);
+            Assert.AreEqual("2016-04-11T13:32:38Z", TestUtil.ToTestableString(page[0].EntityMetadata.CreatedAt), true);
             Assert.AreEqual("", TestUtil.ToTestableString(page[0].EntityMetadata.UpdatedAt), true);
-            Assert.AreEqual("name-1866", TestUtil.ToTestableString(page[0].Name), true);
+            Assert.AreEqual("name-263", TestUtil.ToTestableString(page[0].Name), true);
             Assert.AreEqual("true", TestUtil.ToTestableString(page[0].RunningDefault), true);
             Assert.AreEqual("false", TestUtil.ToTestableString(page[0].StagingDefault), true);
         }
@@ -77,13 +77,13 @@ namespace CloudFoundry.CloudController.V2.Test.Deserialization
         {
             string json = @"{
   ""metadata"": {
-    ""guid"": ""8fca1e6e-eb93-4adb-8408-7a1b41abcdd2"",
-    ""url"": ""/v2/config/running_security_groups/8fdd838d-e3a2-4a4b-891e-c6619acad8c0"",
-    ""created_at"": ""2016-03-30T10:15:30Z"",
-    ""updated_at"": ""2016-03-30T10:15:30Z""
+    ""guid"": ""d5940919-546e-46d4-aa21-38dea3aaa6e8"",
+    ""url"": ""/v2/config/running_security_groups/99be6dcf-70fe-4a3b-adbf-d503667dd32e"",
+    ""created_at"": ""2016-04-11T13:32:38Z"",
+    ""updated_at"": ""2016-04-11T13:32:38Z""
   },
   ""entity"": {
-    ""name"": ""name-1867"",
+    ""name"": ""name-260"",
     ""rules"": [
       {
         ""protocol"": ""udp"",
@@ -98,11 +98,11 @@ namespace CloudFoundry.CloudController.V2.Test.Deserialization
 
             SetSecurityGroupAsDefaultForRunningAppsResponse obj = Utilities.DeserializeJson<SetSecurityGroupAsDefaultForRunningAppsResponse>(json);
 
-            Assert.AreEqual("8fca1e6e-eb93-4adb-8408-7a1b41abcdd2", TestUtil.ToTestableString(obj.EntityMetadata.Guid), true);
-            Assert.AreEqual("/v2/config/running_security_groups/8fdd838d-e3a2-4a4b-891e-c6619acad8c0", TestUtil.ToTestableString(obj.EntityMetadata.Url), true);
-            Assert.AreEqual("2016-03-30T10:15:30Z", TestUtil.ToTestableString(obj.EntityMetadata.CreatedAt), true);
-            Assert.AreEqual("2016-03-30T10:15:30Z", TestUtil.ToTestableString(obj.EntityMetadata.UpdatedAt), true);
-            Assert.AreEqual("name-1867", TestUtil.ToTestableString(obj.Name), true);
+            Assert.AreEqual("d5940919-546e-46d4-aa21-38dea3aaa6e8", TestUtil.ToTestableString(obj.EntityMetadata.Guid), true);
+            Assert.AreEqual("/v2/config/running_security_groups/99be6dcf-70fe-4a3b-adbf-d503667dd32e", TestUtil.ToTestableString(obj.EntityMetadata.Url), true);
+            Assert.AreEqual("2016-04-11T13:32:38Z", TestUtil.ToTestableString(obj.EntityMetadata.CreatedAt), true);
+            Assert.AreEqual("2016-04-11T13:32:38Z", TestUtil.ToTestableString(obj.EntityMetadata.UpdatedAt), true);
+            Assert.AreEqual("name-260", TestUtil.ToTestableString(obj.Name), true);
             Assert.AreEqual("true", TestUtil.ToTestableString(obj.RunningDefault), true);
             Assert.AreEqual("false", TestUtil.ToTestableString(obj.StagingDefault), true);
         }
