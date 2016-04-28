@@ -32,7 +32,7 @@ namespace CloudFoundry.CloudController.V2.Test.Serialization
         {
             string json = @"{
   ""name"": ""docker_app"",
-  ""space_guid"": ""02173da3-77b7-435c-86bb-c05e42d66e72"",
+  ""space_guid"": ""e6e98063-7a1e-4d96-aa28-403f7c1d081f"",
   ""docker_image"": ""cloudfoundry/hello"",
   ""diego"": true
 }";
@@ -40,7 +40,7 @@ namespace CloudFoundry.CloudController.V2.Test.Serialization
             CreateDockerAppExperimentalRequest request = new CreateDockerAppExperimentalRequest();
 
             request.Name = "docker_app";
-            request.SpaceGuid = new Guid("02173da3-77b7-435c-86bb-c05e42d66e72");
+            request.SpaceGuid = new Guid("e6e98063-7a1e-4d96-aa28-403f7c1d081f");
             request.DockerImage = "cloudfoundry/hello";
             request.Diego = true;
             string result = JsonConvert.SerializeObject(request, Formatting.None);
@@ -49,11 +49,11 @@ namespace CloudFoundry.CloudController.V2.Test.Serialization
         [TestMethod]
         public void TestCopyAppBitsForAppRequest()
         {
-            string json = @"{""source_app_guid"":""ff1b2369-b67e-431e-9ca4-b5073c72e7bb""}";
+            string json = @"{""source_app_guid"":""667d248a-2242-490b-bd67-dbfd27b178de""}";
 
             CopyAppBitsForAppRequest request = new CopyAppBitsForAppRequest();
 
-            request.SourceAppGuid = new Guid("ff1b2369-b67e-431e-9ca4-b5073c72e7bb");
+            request.SourceAppGuid = new Guid("667d248a-2242-490b-bd67-dbfd27b178de");
             string result = JsonConvert.SerializeObject(request, Formatting.None);
             Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
         }
@@ -62,7 +62,7 @@ namespace CloudFoundry.CloudController.V2.Test.Serialization
         {
             string json = @"{
   ""name"": ""my_super_app"",
-  ""space_guid"": ""3f872485-32d6-4c2b-bde5-3279d2c497b9"",
+  ""space_guid"": ""15b156d1-3bd1-4d6d-84f0-6fb94d0d7ff2"",
   ""diego"": true,
   ""ports"": [
     1024,
@@ -73,7 +73,7 @@ namespace CloudFoundry.CloudController.V2.Test.Serialization
             CreateAppRequest request = new CreateAppRequest();
 
             request.Name = "my_super_app";
-            request.SpaceGuid = new Guid("3f872485-32d6-4c2b-bde5-3279d2c497b9");
+            request.SpaceGuid = new Guid("15b156d1-3bd1-4d6d-84f0-6fb94d0d7ff2");
             request.Diego = true;
             request.Ports = Array.ConvertAll(TestUtil.GetJsonArray(@"[1024,2000]"), (p => (int?)Convert.ToInt32(p))); 
 

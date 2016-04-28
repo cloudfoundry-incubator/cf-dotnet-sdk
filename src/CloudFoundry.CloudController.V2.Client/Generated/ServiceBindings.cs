@@ -53,7 +53,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Delete a Particular Service Binding
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/service_bindings/delete_a_particular_service_binding.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/service_bindings/delete_a_particular_service_binding.html"</para>
         /// </summary>
         public async Task DeleteServiceBinding(Guid? guid)
         {
@@ -74,7 +74,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Service Bindings
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/service_bindings/list_all_service_bindings.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/service_bindings/list_all_service_bindings.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllServiceBindingsResponse>> ListAllServiceBindings()
         {
@@ -83,7 +83,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Service Bindings
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/service_bindings/list_all_service_bindings.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/service_bindings/list_all_service_bindings.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllServiceBindingsResponse>> ListAllServiceBindings(RequestOptions options)
         {
@@ -105,7 +105,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Retrieve a Particular Service Binding
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/service_bindings/retrieve_a_particular_service_binding.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/service_bindings/retrieve_a_particular_service_binding.html"</para>
         /// </summary>
         public async Task<RetrieveServiceBindingResponse> RetrieveServiceBinding(Guid? guid)
         {
@@ -126,7 +126,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Create a Service Binding
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/service_bindings/create_a_service_binding.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/service_bindings/create_a_service_binding.html"</para>
         /// </summary>
         public async Task<CreateServiceBindingResponse> CreateServiceBinding(CreateServiceBindingRequest value)
         {

@@ -34,9 +34,10 @@ namespace CloudFoundry.CloudController.V2.Test.Serialization
   ""name"": ""gold_quota"",
   ""non_basic_services_allowed"": true,
   ""total_services"": -1,
-  ""total_routes"": -1,
+  ""total_routes"": 10,
   ""memory_limit"": 5120,
-  ""organization_guid"": ""943d41cd-7fdb-4778-bb2e-ffc89eea3b5a""
+  ""organization_guid"": ""28ea78e6-ce1e-4cf6-9f2d-8c540e552ea5"",
+  ""total_reserved_route_ports"": 5
 }";
 
             CreateSpaceQuotaDefinitionRequest request = new CreateSpaceQuotaDefinitionRequest();
@@ -44,9 +45,10 @@ namespace CloudFoundry.CloudController.V2.Test.Serialization
             request.Name = "gold_quota";
             request.NonBasicServicesAllowed = true;
             request.TotalServices = -1;
-            request.TotalRoutes = -1;
+            request.TotalRoutes = 10;
             request.MemoryLimit = 5120;
-            request.OrganizationGuid = new Guid("943d41cd-7fdb-4778-bb2e-ffc89eea3b5a");
+            request.OrganizationGuid = new Guid("28ea78e6-ce1e-4cf6-9f2d-8c540e552ea5");
+            request.TotalReservedRoutePorts = 5;
             string result = JsonConvert.SerializeObject(request, Formatting.None);
             Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
         }

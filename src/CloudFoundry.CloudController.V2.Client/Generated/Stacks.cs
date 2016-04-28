@@ -53,7 +53,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Stacks
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/stacks/list_all_stacks.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/stacks/list_all_stacks.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllStacksResponse>> ListAllStacks()
         {
@@ -62,7 +62,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Stacks
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/stacks/list_all_stacks.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/stacks/list_all_stacks.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllStacksResponse>> ListAllStacks(RequestOptions options)
         {
@@ -84,7 +84,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Retrieve a Particular Stack
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/stacks/retrieve_a_particular_stack.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/stacks/retrieve_a_particular_stack.html"</para>
         /// </summary>
         public async Task<RetrieveStackResponse> RetrieveStack(Guid? guid)
         {
@@ -105,7 +105,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Create a Stack
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/stacks/create_a_stack.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/stacks/create_a_stack.html"</para>
         /// </summary>
         public async Task<CreateStackResponse> CreateStack(CreateStackRequest value)
         {
@@ -128,7 +128,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Delete a Particular Stack
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/stacks/delete_a_particular_stack.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/stacks/delete_a_particular_stack.html"</para>
         /// </summary>
         public async Task DeleteStack(Guid? guid)
         {

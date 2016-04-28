@@ -53,9 +53,9 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Retrieve File
-        /// <para>The endpoint does not function with Deigo apps.</para>
+        /// <para>The endpoint does not function with Diego apps.</para>
         /// <para>Please use CF CLI command `cf ssh` for Diego apps.</para>
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/files/retrieve_file.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/files/retrieve_file.html"</para>
         /// </summary>
         public async Task RetrieveFile(Guid? app_guid, int? instance_index, dynamic file_path)
         {

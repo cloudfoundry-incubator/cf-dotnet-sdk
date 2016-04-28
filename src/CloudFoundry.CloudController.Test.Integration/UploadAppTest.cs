@@ -121,7 +121,7 @@ namespace CloudFoundry.CloudController.Test.Integration
             {
                 using (var arch = new ZipArchive(fs, ZipArchiveMode.Read, true))
                 {
-                    Assert.IsTrue(arch.Entries.Count() == 11);
+                    Assert.IsTrue(arch.Entries.Count() == 9);
 
                     Assert.IsTrue(arch.Entries.First(a => a.FullName == "content.txt").Length == staticContent.Length);
                     Assert.IsTrue(arch.Entries.First(a => a.FullName == "zero.txt").Length == 0);

@@ -53,7 +53,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Remove Private Domain from the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/remove_private_domain_from_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/remove_private_domain_from_the_organization.html"</para>
         /// </summary>
         public async Task RemovePrivateDomainFromOrganization(Guid? guid, Guid? private_domain_guid)
         {
@@ -74,7 +74,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Update an Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/update_an_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/update_an_organization.html"</para>
         /// </summary>
         public async Task<UpdateOrganizationResponse> UpdateOrganization(Guid? guid, UpdateOrganizationRequest value)
         {
@@ -97,7 +97,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Associate Billing Manager with the Organization by Username
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/associate_billing_manager_with_the_organization_by_username.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/associate_billing_manager_with_the_organization_by_username.html"</para>
         /// </summary>
         public async Task<AssociateBillingManagerWithOrganizationByUsernameResponse> AssociateBillingManagerWithOrganizationByUsername(Guid? guid, AssociateBillingManagerWithOrganizationByUsernameRequest value)
         {
@@ -120,7 +120,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Delete a Particular Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/delete_a_particular_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/delete_a_particular_organization.html"</para>
         /// </summary>
         public async Task DeleteOrganization(Guid? guid)
         {
@@ -141,7 +141,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Get Organization summary
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/get_organization_summary.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/get_organization_summary.html"</para>
         /// </summary>
         public async Task<GetOrganizationSummaryResponse> GetOrganizationSummary(Guid? guid)
         {
@@ -162,7 +162,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Associate User with the Organization by Username
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/associate_user_with_the_organization_by_username.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/associate_user_with_the_organization_by_username.html"</para>
         /// </summary>
         public async Task<AssociateUserWithOrganizationByUsernameResponse> AssociateUserWithOrganizationByUsername(Guid? guid, AssociateUserWithOrganizationByUsernameRequest value)
         {
@@ -185,7 +185,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Remove Billing Manager from the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/remove_billing_manager_from_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/remove_billing_manager_from_the_organization.html"</para>
         /// </summary>
         public async Task RemoveBillingManagerFromOrganization(Guid? guid, Guid? billing_manager_guid)
         {
@@ -206,7 +206,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Retrieve a Particular Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/retrieve_a_particular_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/retrieve_a_particular_organization.html"</para>
         /// </summary>
         public async Task<RetrieveOrganizationResponse> RetrieveOrganization(Guid? guid)
         {
@@ -227,7 +227,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Users for the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/list_all_users_for_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/list_all_users_for_the_organization.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllUsersForOrganizationResponse>> ListAllUsersForOrganization(Guid? guid)
         {
@@ -236,7 +236,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Users for the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/list_all_users_for_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/list_all_users_for_the_organization.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllUsersForOrganizationResponse>> ListAllUsersForOrganization(Guid? guid, RequestOptions options)
         {
@@ -258,7 +258,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Associate Auditor with the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/associate_auditor_with_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/associate_auditor_with_the_organization.html"</para>
         /// </summary>
         public async Task<AssociateAuditorWithOrganizationResponse> AssociateAuditorWithOrganization(Guid? guid, Guid? auditor_guid)
         {
@@ -280,7 +280,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Auditors for the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/list_all_auditors_for_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/list_all_auditors_for_the_organization.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllAuditorsForOrganizationResponse>> ListAllAuditorsForOrganization(Guid? guid)
         {
@@ -289,7 +289,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Auditors for the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/list_all_auditors_for_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/list_all_auditors_for_the_organization.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllAuditorsForOrganizationResponse>> ListAllAuditorsForOrganization(Guid? guid, RequestOptions options)
         {
@@ -311,7 +311,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Remove Manager with the Organization by Username
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/remove_manager_with_the_organization_by_username.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/remove_manager_with_the_organization_by_username.html"</para>
         /// </summary>
         public async Task RemoveManagerWithOrganizationByUsername(Guid? guid, RemoveManagerWithOrganizationByUsernameRequest value)
         {
@@ -333,7 +333,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Associate Manager with the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/associate_manager_with_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/associate_manager_with_the_organization.html"</para>
         /// </summary>
         public async Task<AssociateManagerWithOrganizationResponse> AssociateManagerWithOrganization(Guid? guid, Guid? manager_guid)
         {
@@ -355,7 +355,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Billing Managers for the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/list_all_billing_managers_for_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/list_all_billing_managers_for_the_organization.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllBillingManagersForOrganizationResponse>> ListAllBillingManagersForOrganization(Guid? guid)
         {
@@ -364,7 +364,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Billing Managers for the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/list_all_billing_managers_for_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/list_all_billing_managers_for_the_organization.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllBillingManagersForOrganizationResponse>> ListAllBillingManagersForOrganization(Guid? guid, RequestOptions options)
         {
@@ -386,7 +386,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Spaces for the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/list_all_spaces_for_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/list_all_spaces_for_the_organization.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllSpacesForOrganizationResponse>> ListAllSpacesForOrganization(Guid? guid)
         {
@@ -395,7 +395,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Spaces for the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/list_all_spaces_for_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/list_all_spaces_for_the_organization.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllSpacesForOrganizationResponse>> ListAllSpacesForOrganization(Guid? guid, RequestOptions options)
         {
@@ -417,7 +417,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Remove User from the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/remove_user_from_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/remove_user_from_the_organization.html"</para>
         /// </summary>
         public async Task RemoveUserFromOrganization(Guid? guid, Guid? user_guid)
         {
@@ -438,7 +438,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Associate Private Domain with the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/associate_private_domain_with_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/associate_private_domain_with_the_organization.html"</para>
         /// </summary>
         public async Task<AssociatePrivateDomainWithOrganizationResponse> AssociatePrivateDomainWithOrganization(Guid? guid, Guid? private_domain_guid)
         {
@@ -460,7 +460,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Associate User with the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/associate_user_with_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/associate_user_with_the_organization.html"</para>
         /// </summary>
         public async Task<AssociateUserWithOrganizationResponse> AssociateUserWithOrganization(Guid? guid, Guid? user_guid)
         {
@@ -482,7 +482,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Remove Manager from the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/remove_manager_from_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/remove_manager_from_the_organization.html"</para>
         /// </summary>
         public async Task RemoveManagerFromOrganization(Guid? guid, Guid? manager_guid)
         {
@@ -503,7 +503,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Remove User with the Organization by Username
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/remove_user_with_the_organization_by_username.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/remove_user_with_the_organization_by_username.html"</para>
         /// </summary>
         public async Task RemoveUserWithOrganizationByUsername(Guid? guid, RemoveUserWithOrganizationByUsernameRequest value)
         {
@@ -525,7 +525,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Creating an Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/creating_an_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/creating_an_organization.html"</para>
         /// </summary>
         public async Task<CreateOrganizationResponse> CreateOrganization(CreateOrganizationRequest value)
         {
@@ -548,7 +548,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Managers for the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/list_all_managers_for_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/list_all_managers_for_the_organization.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllManagersForOrganizationResponse>> ListAllManagersForOrganization(Guid? guid)
         {
@@ -557,7 +557,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Managers for the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/list_all_managers_for_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/list_all_managers_for_the_organization.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllManagersForOrganizationResponse>> ListAllManagersForOrganization(Guid? guid, RequestOptions options)
         {
@@ -579,7 +579,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Organizations
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/list_all_organizations.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/list_all_organizations.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllOrganizationsResponse>> ListAllOrganizations()
         {
@@ -588,7 +588,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Organizations
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/list_all_organizations.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/list_all_organizations.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllOrganizationsResponse>> ListAllOrganizations(RequestOptions options)
         {
@@ -610,7 +610,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Space Quota Definitions for the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/list_all_space_quota_definitions_for_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/list_all_space_quota_definitions_for_the_organization.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllSpaceQuotaDefinitionsForOrganizationResponse>> ListAllSpaceQuotaDefinitionsForOrganization(Guid? guid)
         {
@@ -619,7 +619,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Space Quota Definitions for the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/list_all_space_quota_definitions_for_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/list_all_space_quota_definitions_for_the_organization.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllSpaceQuotaDefinitionsForOrganizationResponse>> ListAllSpaceQuotaDefinitionsForOrganization(Guid? guid, RequestOptions options)
         {
@@ -641,7 +641,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Remove Auditor with the Organization by Username
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/remove_auditor_with_the_organization_by_username.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/remove_auditor_with_the_organization_by_username.html"</para>
         /// </summary>
         public async Task RemoveAuditorWithOrganizationByUsername(Guid? guid, RemoveAuditorWithOrganizationByUsernameRequest value)
         {
@@ -663,7 +663,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Remove Billing Manager with the Organization by Username
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/remove_billing_manager_with_the_organization_by_username.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/remove_billing_manager_with_the_organization_by_username.html"</para>
         /// </summary>
         public async Task RemoveBillingManagerWithOrganizationByUsername(Guid? guid, RemoveBillingManagerWithOrganizationByUsernameRequest value)
         {
@@ -685,7 +685,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Domains for the Organization (deprecated)
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/list_all_domains_for_the_organization_(deprecated).html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/list_all_domains_for_the_organization_(deprecated).html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllDomainsForOrganizationDeprecatedResponse>> ListAllDomainsForOrganizationDeprecated(Guid? guid)
         {
@@ -694,7 +694,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Domains for the Organization (deprecated)
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/list_all_domains_for_the_organization_(deprecated).html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/list_all_domains_for_the_organization_(deprecated).html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllDomainsForOrganizationDeprecatedResponse>> ListAllDomainsForOrganizationDeprecated(Guid? guid, RequestOptions options)
         {
@@ -716,7 +716,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Associate Billing Manager with the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/associate_billing_manager_with_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/associate_billing_manager_with_the_organization.html"</para>
         /// </summary>
         public async Task<AssociateBillingManagerWithOrganizationResponse> AssociateBillingManagerWithOrganization(Guid? guid, Guid? billing_manager_guid)
         {
@@ -738,7 +738,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Remove Auditor from the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/remove_auditor_from_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/remove_auditor_from_the_organization.html"</para>
         /// </summary>
         public async Task RemoveAuditorFromOrganization(Guid? guid, Guid? auditor_guid)
         {
@@ -759,7 +759,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Associate Auditor with the Organization by Username
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/associate_auditor_with_the_organization_by_username.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/associate_auditor_with_the_organization_by_username.html"</para>
         /// </summary>
         public async Task<AssociateAuditorWithOrganizationByUsernameResponse> AssociateAuditorWithOrganizationByUsername(Guid? guid, AssociateAuditorWithOrganizationByUsernameRequest value)
         {
@@ -782,7 +782,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Associate Manager with the Organization by Username
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/associate_manager_with_the_organization_by_username.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/associate_manager_with_the_organization_by_username.html"</para>
         /// </summary>
         public async Task<AssociateManagerWithOrganizationByUsernameResponse> AssociateManagerWithOrganizationByUsername(Guid? guid, AssociateManagerWithOrganizationByUsernameRequest value)
         {
@@ -805,7 +805,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Services for the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/list_all_services_for_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/list_all_services_for_the_organization.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllServicesForOrganizationResponse>> ListAllServicesForOrganization(Guid? guid)
         {
@@ -814,7 +814,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Services for the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/list_all_services_for_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/list_all_services_for_the_organization.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllServicesForOrganizationResponse>> ListAllServicesForOrganization(Guid? guid, RequestOptions options)
         {
@@ -836,7 +836,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Private Domains for the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/list_all_private_domains_for_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/list_all_private_domains_for_the_organization.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllPrivateDomainsForOrganizationResponse>> ListAllPrivateDomainsForOrganization(Guid? guid)
         {
@@ -845,7 +845,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// List all Private Domains for the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/list_all_private_domains_for_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/list_all_private_domains_for_the_organization.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<ListAllPrivateDomainsForOrganizationResponse>> ListAllPrivateDomainsForOrganization(Guid? guid, RequestOptions options)
         {
@@ -867,7 +867,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Retrieving the roles of all Users in the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/retrieving_the_roles_of_all_users_in_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/retrieving_the_roles_of_all_users_in_the_organization.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<RetrievingRolesOfAllUsersInOrganizationResponse>> RetrievingRolesOfAllUsersInOrganization(Guid? guid)
         {
@@ -876,7 +876,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Retrieving the roles of all Users in the Organization
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/retrieving_the_roles_of_all_users_in_the_organization.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/retrieving_the_roles_of_all_users_in_the_organization.html"</para>
         /// </summary>
         public async Task<PagedResponseCollection<RetrievingRolesOfAllUsersInOrganizationResponse>> RetrievingRolesOfAllUsersInOrganization(Guid? guid, RequestOptions options)
         {
@@ -898,7 +898,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
 
         /// <summary>
         /// Retrieving organization memory usage
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/retrieving_organization_memory_usage.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/retrieving_organization_memory_usage.html"</para>
         /// </summary>
         public async Task<RetrievingOrganizationMemoryUsageResponse> RetrievingOrganizationMemoryUsage(Guid? guid)
         {
@@ -921,7 +921,7 @@ namespace CloudFoundry.CloudController.V2.Client.Base
         /// Retrieving organization instance usage
         /// <para>This endpoint returns a count of started app instances under an organization.</para>
         /// <para>Note that crashing apps are included in this count.</para>
-        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/234/organizations/retrieving_organization_instance_usage.html"</para>
+        /// <para>For detailed information, see online documentation at: "http://apidocs.cloudfoundry.org/236/organizations/retrieving_organization_instance_usage.html"</para>
         /// </summary>
         public async Task<RetrievingOrganizationInstanceUsageResponse> RetrievingOrganizationInstanceUsage(Guid? guid)
         {
