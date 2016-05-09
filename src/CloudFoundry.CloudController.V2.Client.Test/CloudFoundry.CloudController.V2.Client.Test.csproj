@@ -104,9 +104,7 @@
     <Compile Include="Deserialization\Test_private_domains.cs" />
     <Compile Include="Deserialization\Test_resource_match.cs" />
     <Compile Include="Deserialization\Test_routes.cs" />
-    <Compile Include="Deserialization\Test_routes_mapping.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Deserialization\Test_routes_mapping.cs" />
     <Compile Include="Deserialization\Test_security_groups.cs" />
     <Compile Include="Deserialization\Test_security_group_running_defaults.cs" />
     <Compile Include="Deserialization\Test_security_group_staging_defaults.cs" />
@@ -238,7 +236,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Fakes Include="Fakes\CloudFoundry.Loggregator.Client.fakes" />
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <Fakes Include="Fakes\System.Net.Http.fakes" />
     <Fakes Include="Fakes\Thinktecture.IdentityModel.Client.Net45.fakes" />
     <Fakes Include="Fakes\CloudFoundry.Logyard.Client.fakes" />
