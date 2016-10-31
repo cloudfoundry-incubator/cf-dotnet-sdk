@@ -196,5 +196,15 @@ namespace CloudFoundry.CloudController.V2.Client.Data.Base
             get;
             set;
         }
+
+        /// <summary> 
+        /// <para>The Logging Endpoint</para>
+        /// </summary>
+        [JsonProperty("doppler_logging_endpoint", NullValueHandling = NullValueHandling.Ignore)]
+        public string DopplerEndpoint
+        {
+            get;
+            set;
+        }
     }
 }
