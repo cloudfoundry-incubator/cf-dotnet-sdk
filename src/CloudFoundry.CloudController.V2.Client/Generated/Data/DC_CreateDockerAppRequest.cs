@@ -93,7 +93,7 @@ namespace CloudFoundry.CloudController.V2.Client.Data.Base
         /// <para>The number of instances of the app to run. To ensure optimal availability, ensure there are at least 2 instances.</para>
         /// </summary>
         [JsonProperty("instances", NullValueHandling = NullValueHandling.Ignore)]
-        public string Instances
+        public int Instances
         {
             get;
             set;
