@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudFoundry.CloudController.V2.Client", "src\CloudFoundry.CloudController.V2.Client\CloudFoundry.CloudController.V2.Client.csproj", "{F54D7282-FE0C-474D-A8F6-326146554CDB}"
 EndProject
@@ -49,6 +49,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudFoundry.Doppler.Client.Net45", "src\CloudFoundry.Doppler.Client.Net45\CloudFoundry.Doppler.Client.Net45.csproj", "{9C8575BD-A191-49F4-811C-CE694BB094FE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudFoundry.Doppler.DropsondeProtocol", "src\CloudFoundry.Doppler.DropsondeProtocol\CloudFoundry.Doppler.DropsondeProtocol.csproj", "{DCF74B1C-5C6F-482B-9556-458D1C28634D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudFoundry.CloudController.Common.Core", "src\CloudFoundry.CloudController.Common.Core\CloudFoundry.CloudController.Common.Core.csproj", "{F9F7D6B6-60B1-4A7E-8614-44E94925CF21}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudFoundry.UAA.Client.Core", "src\CloudFoundry.UAA.Client.Core\CloudFoundry.UAA.Client.Core.csproj", "{CA5D819B-4EED-422B-AFC9-6D6D165DB6D6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudFoundry.CloudController.V2.Client.Core", "src\CloudFoundry.CloudController.V2.Client.Core\CloudFoundry.CloudController.V2.Client.Core.csproj", "{C9923198-897E-4604-BC2B-9B98D7B89CBF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudFoundry.CloudController.V3.Client.Core", "src\CloudFoundry.CloudController.V3.Client.Core\CloudFoundry.CloudController.V3.Client.Core.csproj", "{0ACC2F7B-140F-45B9-881A-D52A88FA2234}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -120,8 +128,27 @@ Global
 		{DCF74B1C-5C6F-482B-9556-458D1C28634D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCF74B1C-5C6F-482B-9556-458D1C28634D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCF74B1C-5C6F-482B-9556-458D1C28634D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9F7D6B6-60B1-4A7E-8614-44E94925CF21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9F7D6B6-60B1-4A7E-8614-44E94925CF21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9F7D6B6-60B1-4A7E-8614-44E94925CF21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9F7D6B6-60B1-4A7E-8614-44E94925CF21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA5D819B-4EED-422B-AFC9-6D6D165DB6D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA5D819B-4EED-422B-AFC9-6D6D165DB6D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA5D819B-4EED-422B-AFC9-6D6D165DB6D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA5D819B-4EED-422B-AFC9-6D6D165DB6D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9923198-897E-4604-BC2B-9B98D7B89CBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9923198-897E-4604-BC2B-9B98D7B89CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9923198-897E-4604-BC2B-9B98D7B89CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9923198-897E-4604-BC2B-9B98D7B89CBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ACC2F7B-140F-45B9-881A-D52A88FA2234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ACC2F7B-140F-45B9-881A-D52A88FA2234}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ACC2F7B-140F-45B9-881A-D52A88FA2234}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ACC2F7B-140F-45B9-881A-D52A88FA2234}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {54898F6E-1AC9-4F5E-AECF-600D6B34FE0D}
 	EndGlobalSection
 EndGlobal
