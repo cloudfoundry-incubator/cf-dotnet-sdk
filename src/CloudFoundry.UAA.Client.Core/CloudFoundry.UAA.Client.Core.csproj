@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\CloudFoundry.UAA.Client\Authentication\AcceptHeaderOverrideHttpClientHandler.cs" Link="Authentication\AcceptHeaderOverrideHttpClientHandler.cs" />
+    <Compile Include="..\CloudFoundry.UAA.Client\Authentication\IAuthentication.cs" Link="Authentication\IAuthentication.cs" />
+    <Compile Include="..\CloudFoundry.UAA.Client\Authentication\ThinkTectureAuthentication.cs" Link="Authentication\ThinkTectureAuthentication.cs" />
+    <Compile Include="..\CloudFoundry.UAA.Client\Authentication\Token.cs" Link="Authentication\Token.cs" />
+    <Compile Include="..\CloudFoundry.UAA.Client\CloudCredentials.cs" Link="CloudCredentials.cs" />
+    <Compile Include="..\CloudFoundry.UAA.Client\Context.cs" Link="Context.cs" />
+    <Compile Include="..\CloudFoundry.UAA.Client\Exceptions\AuthenticationException.cs" Link="Exceptions\AuthenticationException.cs" />
+    <Compile Include="..\CloudFoundry.UAA.Client\IUAA.cs" Link="IUAA.cs" />
+    <Compile Include="..\CloudFoundry.UAA.Client\UAAClient.cs" Link="UAAClient.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="Thinktecture.IdentityModel.Client" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+    <Folder Include="Authentication\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CloudFoundry.CloudController.Common.Core\CloudFoundry.CloudController.Common.Core.csproj" />
+  </ItemGroup>
+
+</Project>
