@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\CloudFoundry.CloudController.Common\CloudFoundryClient.cs" Link="CloudFoundryClient.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.Common\Exceptions\CloudFoundryException.cs" Link="Exceptions\CloudFoundryException.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.Common\Exceptions\CloudFoundryExceptionObject.cs" Link="Exceptions\CloudFoundryExceptionObject.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.Common\Http\HttpHeadersCollection.cs" Link="Http\HttpHeadersCollection.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.Common\Http\HttpMultipartFormData.cs" Link="Http\HttpMultipartFormData.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.Common\Http\IPlatformBaseHttpClientHandler.cs" Link="Http\IPlatformBaseHttpClientHandler.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.Common\Http\PlatformBaseHttpClientHandler.cs" Link="Http\PlatformBaseHttpClientHandler.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.Common\Http\SimpleHttpClient.cs" Link="Http\SimpleHttpClient.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.Common\Http\SimpleHttpRedirectHandler.cs" Link="Http\SimpleHttpRedirectHandler.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.Common\Http\SimpleHttpResponse.cs" Link="Http\SimpleHttpResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.Common\Http\SimpleProxy.cs" Link="Http\SimpleProxy.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.Common\ObjectExtentions.cs" Link="ObjectExtentions.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.Common\PushTools\AppPushTools.cs" Link="PushTools\AppPushTools.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.Common\PushTools\FileFingerprint.cs" Link="PushTools\FileFingerprint.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.Common\PushTools\IAppPushTools.cs" Link="PushTools\IAppPushTools.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Http\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="PushTools\" />
+  </ItemGroup>
+
+</Project>
