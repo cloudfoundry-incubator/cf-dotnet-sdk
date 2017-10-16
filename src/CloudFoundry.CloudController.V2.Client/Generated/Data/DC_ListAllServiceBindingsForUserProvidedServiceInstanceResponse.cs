@@ -21,7 +21,7 @@ namespace CloudFoundry.CloudController.V2.Client.Data
 {
     /// <summary>
     /// Data class used for deserializing the "CloudFoundry.CloudController.V2.Client.UserProvidedServiceInstancesEndpoint.ListAllServiceBindingsForUserProvidedServiceInstance()" Response
-    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/241/user_provided_service_instances/list_all_service_bindings_for_the_user_provided_service_instance.html"</para>
+    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/250/user_provided_service_instances/list_all_service_bindings_for_the_user_provided_service_instance.html"</para>
     /// </summary>
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
     public partial class ListAllServiceBindingsForUserProvidedServiceInstanceResponse : CloudFoundry.CloudController.V2.Client.Data.Base.AbstractListAllServiceBindingsForUserProvidedServiceInstanceResponse
@@ -33,7 +33,7 @@ namespace CloudFoundry.CloudController.V2.Client.Data.Base
 {
     /// <summary>
     /// Base abstract data class used for deserializing the "CloudFoundry.CloudController.V2.Client.UserProvidedServiceInstancesEndpoint.ListAllServiceBindingsForUserProvidedServiceInstance()" Response
-    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/241/user_provided_service_instances/list_all_service_bindings_for_the_user_provided_service_instance.html"</para>
+    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/250/user_provided_service_instances/list_all_service_bindings_for_the_user_provided_service_instance.html"</para>
     /// </summary>
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
     public abstract class AbstractListAllServiceBindingsForUserProvidedServiceInstanceResponse : IResponse
@@ -122,16 +122,6 @@ namespace CloudFoundry.CloudController.V2.Client.Data.Base
         /// </summary>
         [JsonProperty("volume_mounts", NullValueHandling = NullValueHandling.Ignore)]
         public dynamic[] VolumeMounts
-        {
-            get;
-            set;
-        }
-
-        /// <summary> 
-        /// <para>The App Url</para>
-        /// </summary>
-        [JsonProperty("app_url", NullValueHandling = NullValueHandling.Ignore)]
-        public string AppUrl
         {
             get;
             set;

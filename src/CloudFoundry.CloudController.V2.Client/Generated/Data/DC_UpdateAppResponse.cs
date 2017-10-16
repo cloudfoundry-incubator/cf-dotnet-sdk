@@ -21,7 +21,7 @@ namespace CloudFoundry.CloudController.V2.Client.Data
 {
     /// <summary>
     /// Data class used for deserializing the "CloudFoundry.CloudController.V2.Client.AppsEndpoint.UpdateApp()" Response
-    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/241/apps/updating_an_app.html"</para>
+    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/250/apps/updating_an_app.html"</para>
     /// </summary>
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
     public partial class UpdateAppResponse : CloudFoundry.CloudController.V2.Client.Data.Base.AbstractUpdateAppResponse
@@ -33,7 +33,7 @@ namespace CloudFoundry.CloudController.V2.Client.Data.Base
 {
     /// <summary>
     /// Base abstract data class used for deserializing the "CloudFoundry.CloudController.V2.Client.AppsEndpoint.UpdateApp()" Response
-    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/241/apps/updating_an_app.html"</para>
+    /// <para>For usage information, see online documentation at "http://apidocs.cloudfoundry.org/250/apps/updating_an_app.html"</para>
     /// </summary>
     [GeneratedCodeAttribute("cf-sdk-builder", "1.0.0.0")]
     public abstract class AbstractUpdateAppResponse : IResponse
@@ -211,7 +211,7 @@ namespace CloudFoundry.CloudController.V2.Client.Data.Base
         /// <para>The Staging Task Id</para>
         /// </summary>
         [JsonProperty("staging_task_id", NullValueHandling = NullValueHandling.Ignore)]
-        public dynamic StagingTaskId
+        public Guid? StagingTaskId
         {
             get;
             set;
@@ -242,6 +242,16 @@ namespace CloudFoundry.CloudController.V2.Client.Data.Base
         /// </summary>
         [JsonProperty("health_check_timeout", NullValueHandling = NullValueHandling.Ignore)]
         public dynamic HealthCheckTimeout
+        {
+            get;
+            set;
+        }
+
+        /// <summary> 
+        /// <para>The Health Check Http Endpoint</para>
+        /// </summary>
+        [JsonProperty("health_check_http_endpoint", NullValueHandling = NullValueHandling.Ignore)]
+        public dynamic HealthCheckHttpEndpoint
         {
             get;
             set;

@@ -28,23 +28,6 @@ namespace CloudFoundry.CloudController.V2.Test.Serialization
     {
 
         [TestMethod]
-        public void TestCreateRouteRequest()
-        {
-            string json = @"{
-  ""domain_guid"": ""045849ea-d6ab-460f-97c8-a82d990ef44a"",
-  ""space_guid"": ""045849ea-d6ab-460f-97c8-a82d990ef44a"",
-  ""port"": 10000
-}";
-
-            CreateRouteRequest request = new CreateRouteRequest();
-
-            request.DomainGuid = new Guid("045849ea-d6ab-460f-97c8-a82d990ef44a");
-            request.SpaceGuid = new Guid("045849ea-d6ab-460f-97c8-a82d990ef44a");
-            request.Port = 10000;
-            string result = JsonConvert.SerializeObject(request, Formatting.None);
-            Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
-        }
-        [TestMethod]
         public void TestUpdateRouteRequest()
         {
             string json = @"{
@@ -53,6 +36,23 @@ namespace CloudFoundry.CloudController.V2.Test.Serialization
 
             UpdateRouteRequest request = new UpdateRouteRequest();
 
+            request.Port = 10000;
+            string result = JsonConvert.SerializeObject(request, Formatting.None);
+            Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
+        }
+        [TestMethod]
+        public void TestCreateRouteRequest()
+        {
+            string json = @"{
+  ""domain_guid"": ""74324be7-c811-4452-8cbd-09a0353a0e13"",
+  ""space_guid"": ""74324be7-c811-4452-8cbd-09a0353a0e13"",
+  ""port"": 10000
+}";
+
+            CreateRouteRequest request = new CreateRouteRequest();
+
+            request.DomainGuid = new Guid("74324be7-c811-4452-8cbd-09a0353a0e13");
+            request.SpaceGuid = new Guid("74324be7-c811-4452-8cbd-09a0353a0e13");
             request.Port = 10000;
             string result = JsonConvert.SerializeObject(request, Formatting.None);
             Assert.AreEqual(TestUtil.ToUnformatedJsonString(json), result);
