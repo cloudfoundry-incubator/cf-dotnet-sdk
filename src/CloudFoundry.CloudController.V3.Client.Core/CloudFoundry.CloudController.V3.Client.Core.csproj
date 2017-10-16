@@ -1,0 +1,77 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\BaseEndpoint.cs" Link="BaseEndpoint.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\CloudFoundryClient.cs" Link="CloudFoundryClient.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Extensions\Apps.cs" Link="Extensions\Apps.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Extensions\Data\DC_StagePackageRequest.cs" Link="Extensions\Data\DC_StagePackageRequest.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Extensions\Packages.cs" Link="Extensions\Packages.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Extensions\ProgressEventArgs.cs" Link="Extensions\ProgressEventArgs.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\AppRoutesExperimental.cs" Link="Generated\AppRoutesExperimental.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\AppsExperimental.cs" Link="Generated\AppsExperimental.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_AssignDropletAsAppsCurrentDropletRequest.cs" Link="Generated\Data\DC_AssignDropletAsAppsCurrentDropletRequest.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_AssignDropletAsAppsCurrentDropletResponse.cs" Link="Generated\Data\DC_AssignDropletAsAppsCurrentDropletResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_CopyPackageResponse.cs" Link="Generated\Data\DC_CopyPackageResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_CreateAppRequest.cs" Link="Generated\Data\DC_CreateAppRequest.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_CreateAppResponse.cs" Link="Generated\Data\DC_CreateAppResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_CreatePackageRequest.cs" Link="Generated\Data\DC_CreatePackageRequest.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_CreatePackageResponse.cs" Link="Generated\Data\DC_CreatePackageResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_FiltersDropletsByStatesAppGuidsResponse.cs" Link="Generated\Data\DC_FiltersDropletsByStatesAppGuidsResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_GetAppResponse.cs" Link="Generated\Data\DC_GetAppResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_GetDropletResponse.cs" Link="Generated\Data\DC_GetDropletResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_GetEnvForAppResponse.cs" Link="Generated\Data\DC_GetEnvForAppResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_GetPackageResponse.cs" Link="Generated\Data\DC_GetPackageResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_GetProcessFromAppResponse.cs" Link="Generated\Data\DC_GetProcessFromAppResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_GetProcessResponse.cs" Link="Generated\Data\DC_GetProcessResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_ListAllAppsResponse.cs" Link="Generated\Data\DC_ListAllAppsResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_ListAllDropletsResponse.cs" Link="Generated\Data\DC_ListAllDropletsResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_ListAllPackagesResponse.cs" Link="Generated\Data\DC_ListAllPackagesResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_ListAllProcessesResponse.cs" Link="Generated\Data\DC_ListAllProcessesResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_ListAssociatedDropletsResponse.cs" Link="Generated\Data\DC_ListAssociatedDropletsResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_ListAssociatedPackagesResponse.cs" Link="Generated\Data\DC_ListAssociatedPackagesResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_ListAssociatedProcessesResponse.cs" Link="Generated\Data\DC_ListAssociatedProcessesResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_ListRoutesResponse.cs" Link="Generated\Data\DC_ListRoutesResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_MapRouteRequest.cs" Link="Generated\Data\DC_MapRouteRequest.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_ScalingProcessFromItsAppRequest.cs" Link="Generated\Data\DC_ScalingProcessFromItsAppRequest.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_ScalingProcessFromItsAppResponse.cs" Link="Generated\Data\DC_ScalingProcessFromItsAppResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_ScalingProcessRequest.cs" Link="Generated\Data\DC_ScalingProcessRequest.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_ScalingProcessResponse.cs" Link="Generated\Data\DC_ScalingProcessResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_StagePackageRequest.cs" Link="Generated\Data\DC_StagePackageRequest.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_StagePackageResponse.cs" Link="Generated\Data\DC_StagePackageResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_StartingAppResponse.cs" Link="Generated\Data\DC_StartingAppResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_StoppingAppResponse.cs" Link="Generated\Data\DC_StoppingAppResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_UnmapRouteRequest.cs" Link="Generated\Data\DC_UnmapRouteRequest.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_UpdateAppRequest.cs" Link="Generated\Data\DC_UpdateAppRequest.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_UpdateAppResponse.cs" Link="Generated\Data\DC_UpdateAppResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_UpdateProcessRequest.cs" Link="Generated\Data\DC_UpdateProcessRequest.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\Data\DC_UpdateProcessResponse.cs" Link="Generated\Data\DC_UpdateProcessResponse.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\DropletsExperimental.cs" Link="Generated\DropletsExperimental.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\PackagesExperimental.cs" Link="Generated\PackagesExperimental.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Generated\ProcessesExperimental.cs" Link="Generated\ProcessesExperimental.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Page.cs" Link="Page.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\PagedResponseCollection.cs" Link="PagedResponseCollection.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Pagination.cs" Link="Pagination.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\RequestOptions.cs" Link="RequestOptions.cs" />
+    <Compile Include="..\CloudFoundry.CloudController.V3.Client\Utilities.cs" Link="Utilities.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CloudFoundry.CloudController.Common.Core\CloudFoundry.CloudController.Common.Core.csproj" />
+    <ProjectReference Include="..\CloudFoundry.CloudController.V2.Client.Core\CloudFoundry.CloudController.V2.Client.Core.csproj" />
+    <ProjectReference Include="..\CloudFoundry.UAA.Client.Core\CloudFoundry.UAA.Client.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extensions\Data\" />
+    <Folder Include="Generated\Data\" />
+  </ItemGroup>
+
+</Project>
