@@ -1,5 +1,5 @@
 #Cloud Foundry .NET SDK
-The CloudFoundry .NET SDK allows you to easily access the the CloudController API from within your .NET Application
+The CloudFoundry .NET SDK allows you to easily access the CloudController API from within your .NET Application
 
 The full CF API Documentation is available at http://apidocs.cloudfoundry.org/
 
